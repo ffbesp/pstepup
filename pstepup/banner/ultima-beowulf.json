@@ -1,0 +1,51 @@
+{
+  "bannerName" : "Ultima/Beowulf 25K",
+  "totalAvailableLaps" : 4,
+  "totalPerLapCost" : 25000,
+  "fiveStarBaseUnitCount" : 98,
+  "bannerRainbowCount" : 2,
+  "singleUnitDisplayName" : "Ultima",
+
+  "steps" : {
+    "1" : {
+      "cost" : 5000,
+      "summons" : {
+        "guaranteedGold" : 2,
+        "regular" : 9
+      },
+      "extraDrop" : [ "5-star Trust Moogle (ALL 10%)", "1/4 30% Featured 5-star Ticket" ]
+    },
+    "2" : {
+      "cost" : 5000,
+      "summons" : {
+        "guaranteedGold" : 2,
+        "regular" : 9
+      },
+      "extraDrop" : [ "4-star+ guaranteed ticket", "1/4 30% Featured 5-star Ticket" ]
+    },
+    "3" : {
+      "cost" : 5000,
+      "summons" : {
+        "guaranteedGold" : 2,
+        "regular" : 8,
+        "guaranteedEXRainbow" : 1
+      }
+    },
+    "4" : {
+      "cost" : 5000,
+      "summons" : {
+        "guaranteedGold" : 2,
+        "regular" : 9
+      },
+      "extraDrop" : [ "10% 5-star summon ticket", "1/4 30% Featured 5-star Ticket" ]
+    },
+    "5" : {
+      "cost" : 5000,
+      "summons" : {
+        "guaranteedGold" : 2,
+        "regular" : 8,
+        "guaranteedBannerRainbow" : 1
+      }
+    }
+  }
+}

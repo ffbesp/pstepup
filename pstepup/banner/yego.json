@@ -1,0 +1,47 @@
+{
+  "bannerName" : "Yego 12K",
+  "totalAvailableLaps" : 1,
+  "totalPerLapCost" : 12000,
+  "fiveStarBaseUnitCount" : 106,
+  "bannerRainbowCount" : 1,
+  "singleUnitDisplayName" : "Yego",
+
+  "steps" : {
+    "1" : {
+      "cost" : 500,
+      "bonusBannerFiveStarRate" : 1.5,
+      "summons" : {
+        "regular" : 1
+      }
+    },
+    "2" : {
+      "cost" : 1000,
+      "summons" : {
+        "regular" : 2
+      },
+      "extraDrop" : [ "2x 5-star Trust Moogle (ALL 10%)" ]
+    },
+    "3" : {
+      "cost" : 2000,
+      "bonusBannerFiveStarRate" : 2,
+      "summons" : {
+        "regular" : 4
+      }
+    },
+    "4" : {
+      "cost" : 3500,
+      "summons" : {
+        "regular" : 7
+      },
+      "extraDrop" : [ "Violent Tentickler [Whip] +95 ATK, 30% Chance All Ailments (Yego Only: +15% ATK/HP)" ]
+    },
+    "5" : {
+      "cost" : 5000,
+      "bonusBannerFiveStarRate" : 5,
+      "summons" : {
+        "regular" : 10,
+        "guaranteedRainbowWithRateUp" : 1
+      }
+    }
+  }
+}

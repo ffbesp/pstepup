@@ -1,0 +1,53 @@
+{
+  "bannerName" : "Fei/Elly/Bart 22K",
+  "allRainbowsOnBanner" : true,
+  "totalAvailableLaps" : 1,
+  "totalPerLapCost" : 22000,
+  "fiveStarBaseUnitCount" : 99,
+  "bannerRainbowCount" : 3,
+  "singleUnitDisplayName" : "Elly",
+
+  "steps" : {
+    "1" : {
+      "cost" : 3000,
+      "summons" : {
+        "guaranteedGold" : 1,
+        "regular" : 5
+      },
+      "extraDrop" : [ "5x Max-lvl King Metal Minituar" ]
+    },
+    "2" : {
+      "cost" : 4000,
+      "summons" : {
+        "guaranteedGold" : 1,
+        "regular" : 7
+      },
+      "extraDrop" : [ "Regular summon ticket" ]
+    },
+    "3" : {
+      "cost" : 5000,
+      "summons" : {
+        "guaranteedGold" : 1,
+        "regular" : 10
+      },
+      "extraDrop" : [ "4-star+ guaranteed ticket", "Xenogears Limited Exchange Ticket [F/E/B]" ]
+    },
+    "4" : {
+      "cost" : 5000,
+      "summons" : {
+        "guaranteedGold" : 1,
+        "regular" : 10
+      },
+      "extraDrop" : [ "5-star Trust Moogle (ALL 10%)", "Xenogears Limited Exchange Ticket [F/E/B]" ]
+    },
+    "5" : {
+      "cost" : 5000,
+      "summons" : {
+        "guaranteedGold" : 1,
+        "regular" : 9,
+        "guaranteedBannerRainbow" : 1
+      },
+      "extraDrop" : [ "Xenogears Limited Exchange Ticket [F/E/B]" ]
+    }
+  }
+}

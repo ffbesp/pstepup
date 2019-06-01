@@ -1,0 +1,49 @@
+{
+  "bannerName" : "Lilith/Lucius 20K",
+  "totalAvailableLaps" : 3,
+  "totalPerLapCost" : 20000,
+  "fiveStarBaseUnitCount" : 82,
+  "bannerRainbowCount" : 2,
+  "singleUnitDisplayName" : "Lilith",
+
+  "steps" : {
+    "1" : {
+      "cost" : 1500,
+      "summons" : {
+        "guaranteedGold" : 1,
+        "regular" : 3
+      }
+    },
+    "2" : {
+      "cost" : 3500,
+      "summons" : {
+        "guaranteedGold" : 1,
+        "regular" : 7
+      }
+    },
+    "3" : {
+      "cost" : 5000,
+      "summons" : {
+        "guaranteedGold" : 1,
+        "regular" : 10
+      },
+      "extraDrop" : [ "4-star Trust Moogle (ALL 5%)" ]
+    },
+    "4" : {
+      "cost" : 5000,
+      "summons" : {
+        "guaranteedGold" : 1,
+        "regular" : 10
+      },
+      "extraDrop" : [ "5-star Trust Moogle (ALL 10%)" ]
+    },
+    "5" : {
+      "cost" : 5000,
+      "summons" : {
+        "guaranteedGold" : 1,
+        "regular" : 9,
+        "guaranteedBannerRainbow" : 1
+      }
+    }
+  }
+}

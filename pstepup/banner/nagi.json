@@ -1,0 +1,47 @@
+{
+  "bannerName" : "Nagi 12K",
+  "totalAvailableLaps" : 1,
+  "totalPerLapCost" : 12000,
+  "fiveStarBaseUnitCount" : 106,
+  "bannerRainbowCount" : 1,
+  "singleUnitDisplayName" : "Nagi",
+
+  "steps" : {
+    "1" : {
+      "cost" : 500,
+      "bonusBannerFiveStarRate" : 1.5,
+      "summons" : {
+        "regular" : 1
+      }
+    },
+    "2" : {
+      "cost" : 1000,
+      "summons" : {
+        "regular" : 2
+      },
+      "extraDrop" : [ "2x 5-star Trust Moogle (ALL 10%)" ]
+    },
+    "3" : {
+      "cost" : 2000,
+      "bonusBannerFiveStarRate" : 2,
+      "summons" : {
+        "regular" : 4
+      }
+    },
+    "4" : {
+      "cost" : 3500,
+      "summons" : {
+        "regular" : 7
+      },
+      "extraDrop" : [ "Black Tekko - Yin-Yang Cloth [Fist] +105 ATK, +70 MAG (Nagi Only: Auto +80% ATK/MAG Buff)" ]
+    },
+    "5" : {
+      "cost" : 5000,
+      "bonusBannerFiveStarRate" : 5,
+      "summons" : {
+        "regular" : 10,
+        "guaranteedRainbowWithRateUp" : 1
+      }
+    }
+  }
+}

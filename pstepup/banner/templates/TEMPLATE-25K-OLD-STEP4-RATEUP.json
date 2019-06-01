@@ -1,0 +1,52 @@
+{
+  "bannerName" : "NAME/NAME 25K",
+  "totalAvailableLaps" : 3,
+  "totalPerLapCost" : 25000,
+  "fiveStarBaseUnitCount" : 2000000000,
+  "bannerRainbowCount" : 2,
+  "singleUnitDisplayName" : "NAME",
+
+  "steps" : {
+    "1" : {
+      "cost" : 5000,
+      "summons" : {
+        "guaranteedGold" : 1,
+        "regular" : 10
+      },
+      "extraDrop" : [ "5-star Trust Moogle (ALL 10%)" ]
+    },
+    "2" : {
+      "cost" : 5000,
+      "summons" : {
+        "guaranteedGold" : 1,
+        "regular" : 10
+      },
+      "extraDrop" : [ "4-star+ guaranteed ticket" ]
+    },
+    "3" : {
+      "cost" : 5000,
+      "summons" : {
+        "guaranteedGold" : 1,
+        "regular" : 9,
+        "guaranteedEXRainbow" : 1
+      }
+    },
+    "4" : {
+      "cost" : 5000,
+      "bonusFiveStarRate" : 1.5,
+      "summons" : {
+        "guaranteedGold" : 1,
+        "regular" : 10
+      },
+      "extraDrop" : [ "10% 5-star summon ticket" ]
+    },
+    "5" : {
+      "cost" : 5000,
+      "summons" : {
+        "guaranteedGold" : 1,
+        "regular" : 9,
+        "guaranteedBannerRainbow" : 1
+      }
+    }
+  }
+}

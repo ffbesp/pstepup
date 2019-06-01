@@ -1,0 +1,46 @@
+{
+  "bannerName" : "BM Golbez 10K",
+  "totalAvailableLaps" : 1,
+  "totalPerLapCost" : 10000,
+  "fiveStarBaseUnitCount" : 102,
+  "bannerRainbowCount" : 1,
+  "singleUnitDisplayName" : "BM Golbez",
+
+  "steps" : {
+    "1" : {
+      "cost" : 1000,
+      "bonusBannerFiveStarRate" : 1.5,
+      "summons" : {
+        "guaranteedGold" : 1,
+        "regular" : 1
+      },
+      "extraDrop" : [ "4-star Trust Moogle (ALL 5%)" ]
+    },
+    "2" : {
+      "cost" : 2000,
+      "bonusBannerFiveStarRate" : 2,
+      "summons" : {
+        "guaranteedGold" : 1,
+        "regular" : 3
+      },
+      "extraDrop" : [ "5-star Trust Moogle (ALL 10%)" ]
+    },
+    "3" : {
+      "cost" : 3000,
+      "bonusBannerFiveStarRate" : 2,
+      "summons" : {
+        "guaranteedGold" : 1,
+        "regular" : 5
+      },
+      "extraDrop" : [ "4-star guaranteed summon ticket" ]
+    },
+    "4" : {
+      "cost" : 4000,
+      "bonusBannerFiveStarRate" : 3,
+      "summons" : {
+        "regular" : 8,
+        "guaranteedRainbowWithRateUp" : 1
+      }
+    }
+  }
+}

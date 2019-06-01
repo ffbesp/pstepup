@@ -1,0 +1,48 @@
+{
+  "bannerName" : "NAME 12K",
+  "totalAvailableLaps" : 2,
+  "totalPerLapCost" : 12000,
+  "fiveStarBaseUnitCount" : 200000000000000,
+  "bannerRainbowCount" : 1,
+  "singleUnitDisplayName" : "NAME",
+
+  "steps" : {
+    "1" : {
+      "cost" : 500,
+      "bonusBannerFiveStarRate" : 1.5,
+      "summons" : {
+        "regular" : 1
+      }
+    },
+    "2" : {
+      "cost" : 1000,
+      "summons" : {
+        "regular" : 2
+      },
+      "extraDrop" : [ "4-star Trust Moogle (ALL 5%)" ]
+    },
+    "3" : {
+      "cost" : 2000,
+      "bonusBannerFiveStarRate" : 2,
+      "summons" : {
+        "regular" : 4
+      }
+    },
+    "4" : {
+      "cost" : 3500,
+      "summons" : {
+        "regular" : 7
+      },
+      "extraDrop" : [ "5-star Trust Moogle (ALL 10%)" ]
+    },
+    "5" : {
+      "cost" : 5000,
+      "bonusBannerFiveStarRate" : 5,
+      "summons" : {
+        "guaranteedGold" : 1,
+        "regular" : 9,
+        "guaranteedRainbowWithRateUp" : 1
+      }
+    }
+  }
+}
