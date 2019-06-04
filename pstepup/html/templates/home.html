@@ -29,7 +29,7 @@
         <div class="col">
           <h4>Recent Banners</h4>
           {% for banner in last_four_banners %}
-          <a href="{{ siteurl }}/banner/{{ banner['banner_id'] }}/" class="btn btn-outline-success btn-lg btn-block pl-1">
+          <a href="banner/{{ banner['banner_id'] }}/" class="btn btn-outline-success btn-lg btn-block pl-1">
             <div class="d-flex align-items-center justify-content-center">
               {% for name, unit_icon in banner['banner_icon'].iteritems() %}<img class="mr-1" src="https://raw.githubusercontent.com/ffbesp/ffbeEquip/master/static/img/units/unit_icon_{{ unit_icon }}.png"> {% endfor %}
               {{ banner['banner_name'] }}
@@ -40,7 +40,7 @@
         <div class="col">
           <h4>Single 5★ Base</h4>
           {% for banner in last_four_single %}
-          <a href="{{ siteurl }}/banner/{{ banner['banner_id'] }}/" class="btn btn-outline-success btn-lg btn-block pl-1">
+          <a href="banner/{{ banner['banner_id'] }}/" class="btn btn-outline-success btn-lg btn-block pl-1">
             <div class="d-flex align-items-center justify-content-center">
               {% for name, unit_icon in banner['banner_icon'].iteritems() %}<img class="mr-1" src="https://raw.githubusercontent.com/ffbesp/ffbeEquip/master/static/img/units/unit_icon_{{ unit_icon }}.png"> {% endfor %}
               {{ banner['banner_name'] }}
@@ -51,7 +51,7 @@
         <div class="col">
           <h4>Multiple 5★ Base</h4>
           {% for banner in last_four_multi %}
-          <a href="{{ siteurl }}/banner/{{ banner['banner_id'] }}/" class="btn btn-outline-success btn-lg btn-block pl-1">
+          <a href="banner/{{ banner['banner_id'] }}/" class="btn btn-outline-success btn-lg btn-block pl-1">
             <div class="d-flex align-items-center justify-content-center">
               {% for name, unit_icon in banner['banner_icon'].iteritems() %}<img class="mr-1" src="https://raw.githubusercontent.com/ffbesp/ffbeEquip/master/static/img/units/unit_icon_{{ unit_icon }}.png"> {% endfor %}
               {{ banner['banner_name'] }}
@@ -65,7 +65,7 @@
         <div class="col">
           <h4>All Banners</h4>
           {% for banner in all_banner_info %}
-          <a href="{{ siteurl }}/banner/{{ banner['banner_id'] }}/" class="btn btn-outline-info mr-2 mb-2">
+          <a href="banner/{{ banner['banner_id'] }}/" class="btn btn-outline-info mr-2 mb-2">
             <div class="d-flex align-items-center">
               {% for name, unit_icon in banner['banner_icon'].iteritems() %}<img class="small-unit-icon mr-1" src="https://raw.githubusercontent.com/ffbesp/ffbeEquip/master/static/img/units/unit_icon_{{ unit_icon }}.png"> {% endfor %}
               {{ banner['banner_name'] }}
