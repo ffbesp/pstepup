@@ -1,0 +1,276 @@
+{% extends "base.html" %}
+{% block head %}
+    {{ super() }}
+    <style>
+      .banner {
+        width: 31.25rem;
+      }
+
+      #pulls-rates>tbody>tr>td, #pulls-rates>tbody>tr>th, #pulls-rates>thead>tr>th, 
+      #at-least-x>tbody>tr>td, #at-least-x>tbody>tr>th, #at-least-x>thead>tr>th{
+        text-align: center;
+      }
+
+      .rainbow-crystal {
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAMAAADzapwJAAAB6VBMVEUAAAAECRAOAwoODg4DvabBtLJqXGdKS04vMToAKxYWGQxsKtHm6OVrw6CGs8Urqqgoe5iMu7+ipKhxqaO1t8NvWbSfRqqeo8GXlJuqpLA4epd2d5p3bI4fcXpWj5CAeodzhp18bYQ+ZHVXVGZMY3hNSFtiTmYrKEJERk9RPToxTU8nDysoOzMRHDE5FhEOERQIAA/////s///f///y//+c/v+O/P/6//0MTLEDPpwAdjK8//+j//9U+f+c8f/q4/+M3//q2///1v9u0/9pw//fv/8xu//9tv+jpv//mv/yeP//df//aP/bWv9+SP/L+P6c9P7/3v7ZuP0A2Pxk0/wAkPv/+Pr/8fpu0vqD0foAxPp+qvoJn/qae/rey/i9g/ggo/ePH/fQ0PbbwfbUnvasffbOqfWz9/SK8PRBtfSzifCZ/+/v7e/Nxu94dO8fkuuLbuvPlOpM0emlfel55eeZkuSVq+PZ2OC7l99WAN81zd5oXd5b0Nsgg9hbXNcd59V459BdftAHYM5Dicwtfsw1SMkmg8cmasISW8Jk6L45vrUQq69PaKgeZqhcv6YMXaVfy6Qib591x50HVJVR3pQ3kZMJnpIjlIUMR4NFk3kQKXc6s3EPdGoARl8AI1MDRk8ACEwAOkMATULe4nXQAAAAMXRSTlMAMiYE/PGYh2tDGf369vPz8fDw7uzq5eTj3t3Nx7+6tLOvpZ2RjX94c3BoTElHRz0fabiEgwAAAP9JREFUGNNjgAFmNhEdBkygYGTEy4khqpI+e5IJC7q4bsMUqwnG9fxMqMJK2Z1W06exmLGjiBoIz5zaVdJdZS2Iolyrb9H8DFNTM2NzZWRh2TkL5xbZGEVEGgohCwtMnjcjIcAwJNiQFVlYqmPBRLfMMLsoYxRhuRbL3jYLy9qmaAlkYTaXUIvm/lmNrXnyyMKaDjH5zu09SQWpKA7Xq7E18q8uzcly5UAWZuIzMQwvto+LLddHFmaWNjRMSTOsyOVhRPG9qmNQsrtvoaEkF4owI7dfXbyToaEMWsgqGpZVehqaa6AJc4l7JHoHqmFED6Ooj5c6lsjUFuMAOgnKAQBeBDhpbdBpgQAAAABJRU5ErkJggg==);
+        height: 1.375rem;
+        width: 1.375rem;
+      }
+
+      .big-paren {
+        font-size: 1.6rem;
+      }
+    </style>
+{% endblock %}
+{% block content %}
+      {% macro percent_format(value) %}
+        {%- if value is none -%}
+          &#8212;
+        {%- elif value % 1 == 0 -%}
+          {{ '%0.0f%%' % value }}
+        {%- else -%}
+          {{ value|string + '%' }}
+        {%- endif -%}
+      {% endmacro %}
+      <div class="row my-2">
+        <div class="col-lg-5">
+          <h3 class="my-3 d-flex align-items-center">
+            {% for name, b_unit_icon in banner_info['banner_icon'].iteritems() %}
+            <img {{ 'class="ml-1" ' if loop.index > 1 }}src="https://raw.githubusercontent.com/ffbesp/ffbeEquip/master/static/img/units/unit_icon_{{ b_unit_icon }}.png">
+            {% endfor %}
+            <span class="ml-1">{{ banner_info['banner_name'] }}</span>
+          </h3>
+          <div class="d-flex align-items-center">
+            <span class="badge badge-pill badge-secondary mr-2">Dates</span> {{ banner_info['duration']['start'] }} to {{ banner_info['duration']['end'] }}
+          </div>
+          <div class="d-flex align-items-center">
+            <span class="badge badge-pill badge-secondary mr-2">Max Laps</span> {{ banner_info['totalAvailableLaps'] }}
+          </div>
+          <div class="d-flex align-items-center">
+            <span class="badge badge-pill badge-secondary mr-2">Lapis Cost per Lap</span> {{ banner_info['totalPerLapCost'] }}
+          </div>
+          <div class="d-flex align-items-center">
+            <span class="badge badge-pill badge-secondary mr-2">Base 5★ in EX pool</span> {{ banner_info['fiveStarBaseUnitCount'] }}
+          </div>
+          {% if 'allRainbowsOnBanner' in banner_info and banner_info.get('allRainbowsOnBanner') %}
+          <div class="d-flex align-items-center">
+            <span class="badge badge-pill badge-info mr-2">All rainbows are banner units</span>
+          </div>
+          {% endif %}
+        </div>
+        <div class="col-lg-7 text-center">
+          <img class="rounded banner" src="{{ siteurl }}/images/banner/{{ banner_info.get('banner_img') }}">
+        </div>
+      </div>
+
+      <div class="row my-2">
+        <div class="col">
+          <h4>Summary</h4>
+          <table class="table table-hover table-striped">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                {% for lap in range(1, banner_info['totalAvailableLaps'] + 1) %}
+                <th scope="col">{{ lap }} Lap{{ 's' if lap > 1 }}</th>
+                {% endfor %}
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">
+                  <div class="d-flex align-items-center">
+                    Probability for <img class="small-unit-icon ml-1" src="{{ unit_icon }}">
+                  </div>
+                </th>
+                {% for lap in range(1, banner_info['totalAvailableLaps'] + 1) %}
+                <td>{{ summary[lap][1] }}%</td>
+                {% endfor %}
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="d-flex align-items-center">
+                    Probability for 7★ <img class="small-unit-icon ml-1" src="{{ unit_icon }}">
+                  </div>
+                </th>
+                {% for lap in range(1, banner_info['totalAvailableLaps'] + 1) %}
+                <td>{{ summary[lap][2] }}%</td>
+                {% endfor %}
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="d-flex align-items-center">
+                    Probability for <img class="small-unit-icon mx-1" src="{{ unit_icon }}"> STMR
+                  </div>
+                </th>
+                {% for lap in range(1, banner_info['totalAvailableLaps'] + 1) %}
+                <td>{{ summary[lap][4] }}%</td>
+                {% endfor %}
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <hr>
+      <div class="row my-2">
+        <div class="col">
+          <h3>Stats per Lap</h3>
+          <ul class="nav nav-pills mb-3" id="pills-lap" role="tablist">
+            {% for lap in range(1, banner_info['totalAvailableLaps'] + 1) %}
+            <li class="nav-item">
+              <a class="nav-link{{ ' active' if lap == 1 }}" id="{{ 'lap-' + lap|string + '-tab' }}" data-toggle="pill" href="#{{ 'lap-' + lap|string }}" role="tab" aria-controls="{{ 'lap-' + lap|string }}" aria-selected="{{ 'true' if lap == 1 else 'false' }}">{{ lap }} Lap{{ 's' if lap > 1 }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+          <hr>
+          <div class="tab-content" id="pills-lapContent">
+            {% for lap in range(1, banner_info['totalAvailableLaps'] + 1) %}
+            <div class="tab-pane fade{{ ' show active' if lap == 1 }}" id="{{ 'lap-' + lap|string }}" role="tabpanel" aria-labelledby="{{ 'lap-' + lap|string + '-tab' }}">
+
+              <h4 class="mt-3">Pulls and Rates</h4>
+              <table id="pulls-rates" class="table table-sm table-hover table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Pulls</th>
+                    <th scope="col">
+                      <div class="d-flex align-items-center justify-content-center">
+                        <img class="small-unit-icon mr-1" src="{{ unit_icon }}"> Rate
+                      </div>
+                    </th>
+                    {% if banner_info['banner_icon']|length > 1 %}
+                    <th scope="col">
+                      <div class="d-flex align-items-center justify-content-center">
+                        Banner Rate
+                        {%- for name, b_unit_icon in banner_info['banner_icon'].iteritems() %}
+                        {{ 'OR' if loop.index > 1 }}
+                        <img class="small-unit-icon mx-1" src="https://raw.githubusercontent.com/ffbesp/ffbeEquip/master/static/img/units/unit_icon_{{ b_unit_icon }}.png"> 
+                        {% endfor %}
+                      </div>
+                    </th>
+                    {% endif %}
+                    {% if not banner_info.get('allRainbowsOnBanner') %}
+                    <th scope="col">
+                      <div class="d-flex align-items-center justify-content-center">
+                        <i class="d-inline-block rainbow-crystal"></i>
+                        Rainbow Rate
+                      </div>
+                    </th>
+                    {% endif %}
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for row in rates_and_pulls[lap] %}
+                  <tr>
+                    <th scope="row" class="table-dark">{{ row[0] }}</th>
+                    <td>{{ percent_format(row[3]) }}</td>
+                    {% if banner_info['banner_icon']|length > 1 %}
+                    <td>{{ percent_format(row[2]) }}</td>
+                    {% endif %}
+                    {% if not banner_info.get('allRainbowsOnBanner') %}
+                    <td>{{ percent_format(row[1]) }}</td>
+                    {% endif %}
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+              <hr>
+
+              <h4 class="mt-3">Expected Value <a href="{{ siteurl }}/about/#expected-value"><i class="far fa-info-circle"></i></a></h4>
+              <div class="row">
+                <div class="col">
+                  <div class="card bg-light">
+                    <div class="card-header d-flex align-items-center">
+                      <img class="small-unit-icon mr-1" src="{{ unit_icon }}"> {{ one_unit_name }}
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">{{ expected_value[lap]['oneunit'] }}</h5>
+                    </div>
+                  </div>
+                </div>
+                {% if banner_info['banner_icon']|length > 1 %}
+                <div class="col">
+                  <div class="card bg-light">
+                    <div class="card-header d-flex align-items-center">
+                      Banner Rainbows 
+                      {%- for name, b_unit_icon in banner_info['banner_icon'].iteritems() %}
+                      {{ 'OR' if loop.index > 1 }}
+                      <img class="small-unit-icon mx-1" src="https://raw.githubusercontent.com/ffbesp/ffbeEquip/master/static/img/units/unit_icon_{{ b_unit_icon }}.png"> 
+                      {% endfor %}
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">{{ expected_value[lap]['banner'] }}</h5>
+                    </div>
+                  </div>
+                </div>
+                {% endif %}
+                {% if not banner_info.get('allRainbowsOnBanner') %}
+                <div class="col">
+                  <div class="card bg-light">
+                    <div class="card-header d-flex align-items-center">
+                      <i class="d-inline-block rainbow-crystal"></i> Rainbows
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">{{ expected_value[lap]['general'] }}</h5>
+                    </div>
+                  </div>
+                </div>
+                {% endif %}
+              </div>
+              <hr>
+
+              <h4 class="mt-3">Probability for at least X units</h4>
+              <table id="at-least-x" class="table table-sm table-hover table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">X</th>
+                    <th scope="col">
+                      <div class="d-flex align-items-center justify-content-center">
+                        <img class="small-unit-icon mr-1" src="{{ unit_icon }}"> {{ one_unit_name }}
+                      </div>
+                    </th>
+                    {% if banner_info['banner_icon']|length > 1 %}
+                    <th scope="col">
+                      <div class="d-flex align-items-center justify-content-center">
+                        Banner 
+                        {%- for name, b_unit_icon in banner_info['banner_icon'].iteritems() %}
+                        {{ 'OR' if loop.index > 1 }}
+                        <img class="small-unit-icon mx-1" src="https://raw.githubusercontent.com/ffbesp/ffbeEquip/master/static/img/units/unit_icon_{{ b_unit_icon }}.png"> 
+                        {% endfor %}
+                      </div>
+                    </th>
+                    {% endif %}
+                    {% if not banner_info.get('allRainbowsOnBanner') %}
+                    <th scope="col">
+                      <div class="d-flex align-items-center justify-content-center">
+                        <i class="d-inline-block rainbow-crystal"></i> Rainbows
+                      </div>
+                    </th>
+                    {% endif %}
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for x_value in range(1, 8) %}
+                  <tr>
+                    <th scope="row" class="table-dark">{{ x_value }}</th>
+                    <td>{{ percent_format(at_least_x[lap]['oneunit'].get(x_value, 0.0)) }}</td>
+                    {% if banner_info['banner_icon']|length > 1 %}
+                    <td>{{ percent_format(at_least_x[lap]['banner'].get(x_value, 0.0)) }}</td>
+                    {% endif %}
+                    {% if not banner_info.get('allRainbowsOnBanner') %}
+                    <td>{{ percent_format(at_least_x[lap]['general'].get(x_value, 0.0)) }}</td>
+                    {% endif %}
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      
+
+    {% endblock %}
+    {% block javascripts %}
+    {{ super() }}
+    {% endblock %}

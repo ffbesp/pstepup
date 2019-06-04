@@ -1,0 +1,91 @@
+{% block predoctype %}{% endblock %}
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="{{ meta_desc }}">
+    {% block head -%}
+    <title>{{ title }}</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/darkly/bootstrap.min.css" rel="stylesheet" integrity="sha384-w+8Gqjk9Cuo6XH9HKHG5t5I1VR4YBNdPt/29vwgfZR485eoEJZ8rJRbm3TR32P6k" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    {% endblock %}
+    <style>
+      .small-unit-icon { width: 2.5rem; }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary p-2">
+      <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topNav" aria-controls="topNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="{{ siteurl }}">{{ sitename }}</a>
+          
+        <div class="collapse navbar-collapse" id="topNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown mx-2">
+              <a class="nav-link dropdown-toggle" href="#" id="bannerDropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Banners</a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="bannerDropdown">
+                {% for banner in last_four_banners %}
+                <a class="dropdown-item pl-3" href="{{ siteurl }}/banner/{{ banner['banner_id'] }}/">
+                  <div class="d-flex align-items-center">
+                    {% for name, unit_icon in banner['banner_icon'].iteritems() %}
+                    <img src="https://raw.githubusercontent.com/ffbesp/ffbeEquip/master/static/img/units/unit_icon_{{ unit_icon }}.png" class="small-unit-icon mr-1">
+                    {% endfor %}
+                    {{ banner['banner_name'] }}
+                  </div>
+                </a>
+                {% endfor %}
+                <a class="dropdown-item" href="{{ siteurl }}/banner/">More</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown mx-2">
+              <a class="nav-link dropdown-toggle" href="#" id="optionsDropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-cog"></i></a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="optionsDropdown">
+                <a class="dropdown-item" href="{{ siteurl }}/about/">About</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <article class="container">
+      {% block content %}
+      {% endblock %}
+    </article>
+    <footer class="bg-light py-4 mt-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <h6 class="d-none d-md-block">Useful Links</h6>
+            <ul class="list-unstyled">
+              <li class="mb-1"><a href="{{ siteurl }}" class="text-decoration-none">Home</a></li>
+              <li class="mb-1"><a href="{{ siteurl }}/banner/" class="text-decoration-none">Banners</a></li>
+              <li class="mb-1"><a href="{{ siteurl }}/about/" class="text-decoration-none">About</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h6 class="d-none d-md-block">Contact</h6>
+            <ul class="list-unstyled">
+              <li class="mb-1"><a href="//www.reddit.com/message/compose/?to=AzizLighting" target="_blank" class="text-decoration-none"><i class="fab fa-reddit-alien" aria-hidden="true"></i> Reddit</a></li>
+              <li class="mb-1"><a href="//github.com/ffbesp/pstepup" target="_blank" class="text-decoration-none"><i class="fab fa-github" aria-hidden="true"> Github</i></a></li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <h6 class="d-none d-md-block">Legal</h6>
+            <p><small>All unit icons and images copyright &copy; Square Enix Co., Ltd. All rights reserved.</small></p>
+            <div><small>This website is not affiliated with Square Enix Co., Ltd. or gumi Inc. in any way</small></div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    {% block javascripts -%}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha256-98vAGjEDGN79TjHkYWVD4s87rvWkdWLHPs5MC3FvFX4=" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha256-CjSoeELFOcH0/uxWu6mC/Vlrc1AARqbm/jiiImDGV3s=" crossorigin="anonymous"></script>
+
+    {% endblock %}
+  </body>
+</html>

@@ -1,0 +1,303 @@
+{% extends "base.html" %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+      <div class="row">
+        <div class="col">
+          <h3 class="my-3">About &amp; FAQ</h3>
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">So how does all this math work?</h4>
+              <p class="card-text mb-0">To start simply, let's talk about pulling rainbows (i.e. 5★ base units).  On any given pull, there are two possible outcomes: you pull a rainbow unit or you don't.  Lots of math has already been done around probability with two-element outcomes in mind (think true-false, yes-no, one-zero, etc.), so it's just a matter of finding the right equation.  Here we are using the <a href="https://en.wikipedia.org/wiki/Binomial_distribution#Probability_mass_function" target="_blank">Probability Mass Function</a> of the <a href="https://en.wikipedia.org/wiki/Binomial_distribution" target="_blank">Binomial Distribution</a>; for known probability <em>p</em> and number of pulls <em>n</em>, what is the probability of pulling exactly <em>k</em> rainbows?</p>
+              {% raw %}<div>$$Pr(X=k) = {{n}\choose{k}} p^k(1-p)^{n-k}$$</div>{% endraw %}
+              <p class="card-text mb-0">If you're math averse like me, you may be asking 'what the hell is that floaty n and k thing at the start?'  That is known as the <a href="https://en.wikipedia.org/wiki/Binomial_coefficient" target="_blank">Binomial Coefficient</a>, which is a fancy way of saying how many different ways can I pull <em>k</em> rainbows with <em>n</em> number of pulls.  And because math, the Binomial Coefficient formula is made up of a bunch of factorials (because who doesn't love factorials?):</p>
+              {% raw %}<div>$${{n}\choose{k}} = {n! \over k!(n! - k!)}$$</div>{% endraw %}
+              <p class="card-text">Now we should have a good idea what our variables stand for (<em>n</em> is our number of pulls and <em>k</em> is the exact number of rainbows), but wait, what is this 'known probability', little <em>p</em>?  That is where our in-game rates from Gumi/SquareEnix come in.  Just in case you never got around to researching the differing rates per pull type (and boy is that a page turner), here's a breakdown for rainbows in general and on-banner rainbows in particular (for additional rates visit the <a href="https://exvius.gamepedia.com/Summon" target="_blank">FFBE Wiki</a>):</p>
+              <table class="table table-sm table-hover">
+                <thead>
+                  <th>Pull Type</th>
+                  <th>Rainbow rate</th>
+                  <th>Banner Rainbow rate</th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Normal Pull / Rare Summon Ticket</td>
+                    <td>3%</td>
+                    <td>1%</td>
+                  </tr>
+                  <tr>
+                    <td>+1 Pull / Guaranteed 4-star Ticket</td>
+                    <td>5%</td>
+                    <td>3.75%</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="card-text mb-0">Alright, all variables accounted for, now we can answer questions like: with 30 Rare Summon Tickets, what is the probability to pull exactly 3 Rainbows?</p>
+              {% raw %}<div>$$Pr(X=3) = {{30}\choose{3}} 0.03^3(1-0.03)^{30-3} = 4.816\% $$</div>{% endraw %}
+              <p class="card-text">Annnddd here's where it all gets complicated: on a typical step-up banner, we have a variety of <em>p</em> probabilities at various <em>n</em> number of pulls.  For each combination, we must solve the formula above for different values of <em>k</em> rainbows. Then we aggregate those values to determine our overall probabilities for an entire lap of the step-up banner.  Clear as mud?  Alright, example time since you like math so much, let's walk through the process for a specific step-up banner, Cid's 12K.  We are going to look specifically at the probability of pulling Cid.  To start, we'll collect the number of pulls at various pull rates from 1 lap of this step-up:</p>
+              <table class="table table-sm table-hover table-striped table-responsive">
+                <thead>
+                  <tr>
+                    <th scope="col">Pulls</th>
+                    <th scope="col"><img class="small-unit-icon" src="https://raw.githubusercontent.com/ffbesp/ffbeEquip/master/static/img/units/unit_icon_100019505.png"> Rate</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row" class="table-dark">9</th>
+                    <td>5%</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="table-dark">9</th>
+                    <td>1%</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="table-dark">4</th>
+                    <td>2%</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="table-dark">1</th>
+                    <td>25%</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="table-dark">1</th>
+                    <td>18.75%</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="table-dark">1</th>
+                    <td>1.5%</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="card-text">Next, for each pull and rate combination, we will solve our formula above for differing values of <em>k</em> (with <em>k</em> in this case being exactly that number of Cids); for this example, I'll just list values between 0 and 5:</p>
+              <table class="table table-sm table-hover table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col"><em>k</em> (# of Cid)</th>
+                    <th scope="col">9 pulls @ 5%</th>
+                    <th scope="col">9 pulls @ 1%</th>
+                    <th scope="col">4 pulls @ 2%</th>
+                    <th scope="col">1 pull @ 25%</th>
+                    <th scope="col">1 pull @ 18.75%</th>
+                    <th scope="col">1 pull @ 1.5%</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row" class="table-dark">0</th>
+                    <td>63.02%</td>
+                    <td>91.35%</td>
+                    <td>92.24%</td>
+                    <td>75%</td>
+                    <td>81.25%</td>
+                    <td>98.5%</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="table-dark">1</th>
+                    <td>29.85%</td>
+                    <td>8.30%</td>
+                    <td>7.53%</td>
+                    <td>25%</td>
+                    <td>18.75%</td>
+                    <td>1.5%</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="table-dark">2</th>
+                    <td>6.29%</td>
+                    <td>0.34%</td>
+                    <td>0.23%</td>
+                    <td>&#8212;</td>
+                    <td>&#8212;</td>
+                    <td>&#8212;</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="table-dark">3</th>
+                    <td>0.77%</td>
+                    <td>0.008%</td>
+                    <td>0.003%</td>
+                    <td>&#8212;</td>
+                    <td>&#8212;</td>
+                    <td>&#8212;</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="table-dark">4</th>
+                    <td>0.06%</td>
+                    <td>0.0001%</td>
+                    <td>0.00002%</td>
+                    <td>&#8212;</td>
+                    <td>&#8212;</td>
+                    <td>&#8212;</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="table-dark">5</th>
+                    <td>0.003%</td>
+                    <td>0.000001%</td>
+                    <td>&#8212;</td>
+                    <td>&#8212;</td>
+                    <td>&#8212;</td>
+                    <td>&#8212;</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="card-text">Now to actually get to something useful, we must aggregate our probabilities to pull exactly <em>k</em> number of Cids.  This can get a little tricky, as it's not as straightforward of an aggregation as you might expect. For example, let's say we are aggregating probability to pull exactly 1 Cid.  If I pull 1 Cid on my '1 pull @ 25%' then I also know I've pulled 0 Cids on all my other types of pulls.  Or, 1 Cid in my '9 pulls @ 5%' means 0 Cids on all other pulls.  So to aggregate probability for exactly 1 Cid, I take my probability for 1 Cid from one column and multiply by my probability for 0 Cid from all the other columns (Ex: 29.85% from column 1 x 91.35% x 92.24% x 75% x 81.25% x 98.5%).  This value is added to other probability results for exactly 1 Cid (e.g. 1 Cid from column 2 x 0 Cid from all other columns + 1 Cid from column 3 x 0 Cid from all other columns, etc.) to get our overall probability for exactly 1 Cid.  As you can guess, this gets a lot more complicated as the number of Cids increase.  Anyway, this is where computers are our friends and will aggregate our probability to pull exactly <em>k</em> number of Cids for us:</p>
+              <table class="table table-sm table-hover table-striped table-responsive">
+                <thead>
+                  <tr>
+                    <th scope="col">exactly <em>k</em></th>
+                    <th scope="col"><img class="small-unit-icon" src="https://raw.githubusercontent.com/ffbesp/ffbeEquip/master/static/img/units/unit_icon_100019505.png"> Cid</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row" class="table-dark">0</th>
+                    <td>31.88%</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="table-dark">1</th>
+                    <td>39.07%</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="table-dark">2</th>
+                    <td>20.88%</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="table-dark">3</th>
+                    <td>6.57%</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="table-dark">4</th>
+                    <td>1.38%</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="table-dark">5</th>
+                    <td>0.21%</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="card-text">A careful reader will notice that I keep using this word 'exactly'; personally I don't care what the probability is for exactly 1 Cid, I want to know how likely it is that I'll get <strong>at least</strong> 1 Cid.  Luckily this one is easy to explain: the probability of getting at least 0 of any unit is 100% (congratulations, you'll always have at least 0 of every unit!), which means the probability of at least 1 unit = 100% - probability for exactly 0 (e.g. 100% - 31.88% = 68.12%), the probability of at least 2 = 100% - probability for exactly 0 - probability for exactly 1, etc.:</p>
+              <table class="table table-sm table-hover table-striped table-responsive">
+                <thead>
+                  <tr>
+                    <th scope="col">at least <em>k</em></th>
+                    <th scope="col"><img class="small-unit-icon" src="https://raw.githubusercontent.com/ffbesp/ffbeEquip/master/static/img/units/unit_icon_100019505.png"> Cid</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row" class="table-dark">0</th>
+                    <td>100%</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="table-dark">1</th>
+                    <td>68.12%</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="table-dark">2</th>
+                    <td>29.06%</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="table-dark">3</th>
+                    <td>8.18%</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="table-dark">4</th>
+                    <td>1.62%</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="table-dark">5</th>
+                    <td>0.24%</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="card-text">And now we have more meaningful numbers.  You'll notice that each banner breakdown page has both a table of pull counts at various success rates and a table of probabilities for at least <em>k</em> Rainbows, Banner Rainbows, and Specific Banner Rainbows (though those pages use X instead of <em>k</em>, because I assume a normal math-hating person is more likely to recognize X as a variable), so feel free to second guess/double check numbers to your heart's content!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col">
+          <div class="card border-secondary">
+            <div class="card-header">Q: Where do these (rainbow/banner/unit) rates come from?</div>
+            <div class="card-body">
+              <p class="card-text">Rates are listed in game (Summon > Drop Rates > Drop Rates > Step-up Summon).  Some of the basics rarely change, so this site generally uses the historical rates for any future/unreleased banners.  Here's the general rates table from before in case you missed it:</p>
+              <table class="table table-sm table-hover">
+                <thead>
+                  <th>Pull Type</th>
+                  <th>Rainbow rate</th>
+                  <th>Banner Rainbow rate</th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Normal Pull / Rare Summon Ticket</td>
+                    <td>3%</td>
+                    <td>1%</td>
+                  </tr>
+                  <tr>
+                    <td>+1 Pull / Guaranteed 4-star Ticket</td>
+                    <td>5%</td>
+                    <td>3.75%</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="card-text">The only additional bit of information you may need is for banners with multiple 5★ bases: the rate for one particular unit is the banner rate divided by the number of base 5★'s on the banner.  For example, on the Esther/Sylvie banner a normal pull had a 0.5% rate for Esther (1% on banner rate / 2 banner rainbows = 0.5%).  The infamous Valkyrie Profile collab with 3 banner rainbows only had a 0.33% chance on a normal pull for Lenneth (1% on banner rate / 3 banner rainbows).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div id="expected-value" class="row">
+        <div class="col">
+          <div class="card border-secondary">
+            <div class="card-header">Q: What does 'Expected Value' mean?</div>
+            <div class="card-body">
+              <p class="card-text">I'm going to let Wikipedia give a better definition of <a href="https://en.wikipedia.org/wiki/Expected_value", target="_blank">Expected Value</a> than I ever could: "the probability-weighted average of all possible values. In other words, each possible value the random variable can assume is multiplied by its probability of occurring, and the resulting products are summed to produce the expected value."  For a more practical example, if you have 100 regular summon tickets and are pulling on a banner with our normal rainbow rate of 3%, your Expected Value for rainbows on those 100 pulls is 3.  Some may also refer to this as an 'average.'</p>
+              <p class="card-text">I have mixed feelings about Expected Values, as they can be quite useful but also can easily be used to mislead.  Take for example a fair 6-sided dice roll: it's Expected Value is 3.5.  Logically it makes sense, but it's not a value you'll ever observe and it doesn't set your 'expectations' correctly for the outcome of a set of dice rolls.  For another example, let's look at our Expected Value for Cid through 1 lap of his step-up: 1.07.  That almost makes it sound like I should <em>expect</em> to get 1 Cid through 1 lap.  However, recall that our probability for at least 1 Cid was 68.12%; not exactly the guarantee you were hoping for from an Expected Value greater than 1.  You have a good shot at 1 Cid, but 1/3 of the time you'll still pick door #3 and end up with 0 Cids.  So set your 'expectations' accordingly when working with Expected Values.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col">
+          <div class="card border-secondary">
+            <div class="card-header">Q: How are rates determined for guaranteed 5★ pulls with no banner rate-up (e.g. Step 3 of 25K banners)?</div>
+            <div class="card-body">
+              <p class="card-text">General rainbow rates for these type of pulls is always 100%, and the banner rate ends up being:</p>
+              {% raw %}<div>$$ Rate_\text{banner} = {\text{number of base 5★ on banner} \over \text{total base 5★ in the EX pool}} $$</div>{% endraw %}
+              <p class="card-text">This is why you'll often see a mention of <span class="badge badge-pill badge-secondary">Base 5★ in EX pool</span> on most banner pages to show the value used when applicable.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col">
+          <h3>Thanks</h3>
+          <hr>
+          <div>I'm no math savant, so thanks for the math lessons go to the following creators/sites:</div>
+          <ul>
+            <li>Huge thanks go to u/Obikin89 and his <a href="https://redd.it/a9i4a7" target="_blank">explanatory reddit post</a> on how all the math works in detail
+              <ul>
+                <li>See also his <a href="http://odds4ffbe.sylvain-rodriguez.fr" target="_blank">Odds4FFBE site</a>, where you can enter your pull resources to calculate various probability scenarios</li>
+              </ul>
+            </li>
+            <li>For probabilities with more graphs, check out u/rsuzuki's <a href="https://ryosuzuki-art.github.io/ffbe-odds/" target="_blank">FFBE Odds Distribution page</a>; very helpful to me as a double-check on some math (and for figuring out how to show math formulas in a non-terrible manner)</li>
+            <li>Thanks to u/Kawigi's <a href="https://exvius.yajags.com/summonsimulator/" target="_blank">Summon Simulator</a> for being awesome, but also for giving me some ideas on how to keep banner data</li>
+            <li>Special thanks to u/lyrgard's <a href="https://ffbeequip.com/" target="_blank">FFBE Equip site</a> and repo for having all the unit icons</li>
+            <li>And, of course, one cannot talk about probabilities in FFBE without an obligatory link to u/dposluns' <a href="http://ffbe-oddsbitch.danposluns.com/" target="_blank">Odds Bitch</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <h4>Built With</h4>
+          <div>Python (SciPy, Jinja2 for HTML site), MathJax for fancy math formulas, Bootstrap, Font Awesome</div>
+        </div>
+      </div>
+    {% endblock %}
+    {% block javascripts %}
+    {{ super() }}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+    {% endblock %}

@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block head %}
+    {{ super() }}
+    <style>
+      .header-background {
+        background-attachment: fixed;
+        background-size: 73.75rem;
+        background-repeat: no-repeat;
+        background-position: center top;
+      }
+      .darken {
+        background-image: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url("images/ffbe-ff4.jpg");
+      }
+      .background-spacing {
+        margin-top: 16rem;
+      }
+
+    </style>
+{% endblock %}
+{% block content %}
+      <div class="row">
+        <div class="col header-background darken">
+          <h1 class="background-spacing">{{ title }}</h1>
+          <h3 class="mb-4">Probability per lap of step-up banners in Final Fantasy Brave Exvius (FFBE)</h3>
+        </div>
+      </div>
+      <hr>
+      <div id="banner" class="row">
+        <div class="col">
+          <h4>Recent Banners</h4>
+          {% for banner in last_four_banners %}
+          <a href="{{ siteurl }}/banner/{{ banner['banner_id'] }}/" class="btn btn-outline-success btn-lg btn-block pl-1">
+            <div class="d-flex align-items-center justify-content-center">
+              {% for name, unit_icon in banner['banner_icon'].iteritems() %}<img class="mr-1" src="https://raw.githubusercontent.com/ffbesp/ffbeEquip/master/static/img/units/unit_icon_{{ unit_icon }}.png"> {% endfor %}
+              {{ banner['banner_name'] }}
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+        <div class="col">
+          <h4>Single 5★ Base</h4>
+          {% for banner in last_four_single %}
+          <a href="{{ siteurl }}/banner/{{ banner['banner_id'] }}/" class="btn btn-outline-success btn-lg btn-block pl-1">
+            <div class="d-flex align-items-center justify-content-center">
+              {% for name, unit_icon in banner['banner_icon'].iteritems() %}<img class="mr-1" src="https://raw.githubusercontent.com/ffbesp/ffbeEquip/master/static/img/units/unit_icon_{{ unit_icon }}.png"> {% endfor %}
+              {{ banner['banner_name'] }}
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+        <div class="col">
+          <h4>Multiple 5★ Base</h4>
+          {% for banner in last_four_multi %}
+          <a href="{{ siteurl }}/banner/{{ banner['banner_id'] }}/" class="btn btn-outline-success btn-lg btn-block pl-1">
+            <div class="d-flex align-items-center justify-content-center">
+              {% for name, unit_icon in banner['banner_icon'].iteritems() %}<img class="mr-1" src="https://raw.githubusercontent.com/ffbesp/ffbeEquip/master/static/img/units/unit_icon_{{ unit_icon }}.png"> {% endfor %}
+              {{ banner['banner_name'] }}
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col">
+          <h4>All Banners</h4>
+          {% for banner in all_banner_info %}
+          <a href="{{ siteurl }}/banner/{{ banner['banner_id'] }}/" class="btn btn-outline-info mr-2 mb-2">
+            <div class="d-flex align-items-center">
+              {% for name, unit_icon in banner['banner_icon'].iteritems() %}<img class="small-unit-icon mr-1" src="https://raw.githubusercontent.com/ffbesp/ffbeEquip/master/static/img/units/unit_icon_{{ unit_icon }}.png"> {% endfor %}
+              {{ banner['banner_name'] }}
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+{% endblock %}
+{% block javascripts %}
+    {{ super() }}
+{% endblock %}
