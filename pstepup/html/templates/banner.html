@@ -1,26 +1,6 @@
 {% extends "base.html" %}
 {% block head %}
     {{ super() }}
-    <style>
-      .banner {
-        width: 31.25rem;
-      }
-
-      #pulls-rates>tbody>tr>td, #pulls-rates>tbody>tr>th, #pulls-rates>thead>tr>th, 
-      #at-least-x>tbody>tr>td, #at-least-x>tbody>tr>th, #at-least-x>thead>tr>th{
-        text-align: center;
-      }
-
-      .rainbow-crystal {
-        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAMAAADzapwJAAAB6VBMVEUAAAAECRAOAwoODg4DvabBtLJqXGdKS04vMToAKxYWGQxsKtHm6OVrw6CGs8Urqqgoe5iMu7+ipKhxqaO1t8NvWbSfRqqeo8GXlJuqpLA4epd2d5p3bI4fcXpWj5CAeodzhp18bYQ+ZHVXVGZMY3hNSFtiTmYrKEJERk9RPToxTU8nDysoOzMRHDE5FhEOERQIAA/////s///f///y//+c/v+O/P/6//0MTLEDPpwAdjK8//+j//9U+f+c8f/q4/+M3//q2///1v9u0/9pw//fv/8xu//9tv+jpv//mv/yeP//df//aP/bWv9+SP/L+P6c9P7/3v7ZuP0A2Pxk0/wAkPv/+Pr/8fpu0vqD0foAxPp+qvoJn/qae/rey/i9g/ggo/ePH/fQ0PbbwfbUnvasffbOqfWz9/SK8PRBtfSzifCZ/+/v7e/Nxu94dO8fkuuLbuvPlOpM0emlfel55eeZkuSVq+PZ2OC7l99WAN81zd5oXd5b0Nsgg9hbXNcd59V459BdftAHYM5Dicwtfsw1SMkmg8cmasISW8Jk6L45vrUQq69PaKgeZqhcv6YMXaVfy6Qib591x50HVJVR3pQ3kZMJnpIjlIUMR4NFk3kQKXc6s3EPdGoARl8AI1MDRk8ACEwAOkMATULe4nXQAAAAMXRSTlMAMiYE/PGYh2tDGf369vPz8fDw7uzq5eTj3t3Nx7+6tLOvpZ2RjX94c3BoTElHRz0fabiEgwAAAP9JREFUGNNjgAFmNhEdBkygYGTEy4khqpI+e5IJC7q4bsMUqwnG9fxMqMJK2Z1W06exmLGjiBoIz5zaVdJdZS2Iolyrb9H8DFNTM2NzZWRh2TkL5xbZGEVEGgohCwtMnjcjIcAwJNiQFVlYqmPBRLfMMLsoYxRhuRbL3jYLy9qmaAlkYTaXUIvm/lmNrXnyyMKaDjH5zu09SQWpKA7Xq7E18q8uzcly5UAWZuIzMQwvto+LLddHFmaWNjRMSTOsyOVhRPG9qmNQsrtvoaEkF4owI7dfXbyToaEMWsgqGpZVehqaa6AJc4l7JHoHqmFED6Ooj5c6lsjUFuMAOgnKAQBeBDhpbdBpgQAAAABJRU5ErkJggg==);
-        height: 1.375rem;
-        width: 1.375rem;
-      }
-
-      .big-paren {
-        font-size: 1.6rem;
-      }
-    </style>
 {% endblock %}
 {% block content %}
       {% macro percent_format(value) %}
@@ -59,7 +39,7 @@
           {% endif %}
         </div>
         <div class="col-lg-7 text-center">
-          <img class="rounded banner" src="{{ siteurl }}/images/banner/{{ banner_info.get('banner_img') }}">
+          <img class="rounded banner" src="https://raw.githubusercontent.com/ffbesp/ffbesp.github.io/master/images/banner/{{ banner_info.get('banner_img') }}">
         </div>
       </div>
 

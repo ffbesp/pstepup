@@ -79,6 +79,7 @@ def create_banner_page(banner_id):
         if not key == 'steps':
             combined_banner_info[key] = value
 
+    #TODO: add equivalent 10+1 probability, number of tickets for similar probability
     #find comparative probabilities for 10+1's
     multi_pulls = banner_json['totalPerLapCost'] / 5000
     g_rates_and_pulls, b_rates_and_pulls, ou_rates_and_pulls = get_pulls_ten_plus_one(multi_pulls)

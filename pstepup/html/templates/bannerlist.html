@@ -13,7 +13,7 @@
         {% for banner in all_banner_info %}
         <div class="col-12 col-lg-4 my-2">
           <a href="{{ banner['banner_id'] }}/" class="btn btn-outline-success">
-            <img class="rounded img-fluid d-block" src="{{ siteurl }}/images/banner/{{ banner.get('banner_img') }}">
+            <img class="rounded img-fluid d-block" src="https://raw.githubusercontent.com/ffbesp/ffbesp.github.io/master/images/banner/{{ banner.get('banner_img') }}">
             <div class="text-center my-1 d-flex align-items-center justify-content-center flex-wrap">
               {% for name, b_unit_icon in banner['banner_icon'].iteritems() %}<img class="mr-1" src="https://raw.githubusercontent.com/ffbesp/ffbeEquip/master/static/img/units/unit_icon_{{ b_unit_icon }}.png">{% endfor %}
               {{ banner['banner_name'] }}
