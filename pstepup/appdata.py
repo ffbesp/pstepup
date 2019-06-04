@@ -28,6 +28,15 @@ pull_type = {
 
 #only step-up banners; types = limited_time_collab, limited_time_seasonal, new_permanent_units, existing_permanent_units
 banner_info = {
+    "regina" : {
+        "banner_name" : "Regina 25K",
+        "banner_type" : "new_permanent_units",
+        "duration" : { "start" : "2019-06-07" , "end" : "2019-06-21" },
+        "news_image_link" : "https://lapis-prod-staticnews-gumi-sg.akamaized.net/prod//en/img/20190604ReginaSummon.jpg",
+        "banner_json" : "regina.json",
+        "banner_icon" : { "Regina" : "100017507" },
+        "banner_img" : "regina.jpg"
+    }
     "fid-cilka" : {
         "banner_name" : "Fid/Cilka 25K",
         "banner_type" : "new_permanent_units",
