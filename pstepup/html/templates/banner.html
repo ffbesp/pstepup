@@ -108,17 +108,17 @@
             <div class="tab-pane fade{{ ' show active' if lap == 1 }}" id="{{ 'lap-' + lap|string }}" role="tabpanel" aria-labelledby="{{ 'lap-' + lap|string + '-tab' }}">
 
               <h4 class="mt-3">Pulls and Rates</h4>
-              <table id="pulls-rates" class="table table-sm table-hover table-striped">
+              <table class="table table-sm table-hover table-striped">
                 <thead>
                   <tr>
-                    <th scope="col">Pulls</th>
-                    <th scope="col">
+                    <th scope="col" class="text-center">Pulls</th>
+                    <th scope="col" class="text-center">
                       <div class="d-flex align-items-center justify-content-center">
                         <img class="small-unit-icon mr-1" src="{{ unit_icon }}"> Rate
                       </div>
                     </th>
                     {% if banner_info['banner_icon']|length > 1 %}
-                    <th scope="col">
+                    <th scope="col" class="text-center">
                       <div class="d-flex align-items-center justify-content-center">
                         Banner Rate
                         {%- for name, b_unit_icon in banner_info['banner_icon'].iteritems() %}
@@ -129,7 +129,7 @@
                     </th>
                     {% endif %}
                     {% if not banner_info.get('allRainbowsOnBanner') %}
-                    <th scope="col">
+                    <th scope="col" class="text-center">
                       <div class="d-flex align-items-center justify-content-center">
                         <i class="d-inline-block rainbow-crystal"></i>
                         Rainbow Rate
@@ -141,13 +141,13 @@
                 <tbody>
                   {% for row in rates_and_pulls[lap] %}
                   <tr>
-                    <th scope="row" class="table-dark">{{ row[0] }}</th>
-                    <td>{{ percent_format(row[3]) }}</td>
+                    <th scope="row" class="table-dark text-center">{{ row[0] }}</th>
+                    <td class="text-center">{{ percent_format(row[3]) }}</td>
                     {% if banner_info['banner_icon']|length > 1 %}
-                    <td>{{ percent_format(row[2]) }}</td>
+                    <td class="text-center">{{ percent_format(row[2]) }}</td>
                     {% endif %}
                     {% if not banner_info.get('allRainbowsOnBanner') %}
-                    <td>{{ percent_format(row[1]) }}</td>
+                    <td class="text-center">{{ percent_format(row[1]) }}</td>
                     {% endif %}
                   </tr>
                   {% endfor %}
@@ -198,51 +198,111 @@
               </div>
               <hr>
 
-              <h4 class="mt-3">Probability for at least X units</h4>
-              <table id="at-least-x" class="table table-sm table-hover table-striped">
-                <thead>
-                  <tr>
-                    <th scope="col">X</th>
-                    <th scope="col">
-                      <div class="d-flex align-items-center justify-content-center">
-                        <img class="small-unit-icon mr-1" src="{{ unit_icon }}"> {{ one_unit_name }}
-                      </div>
-                    </th>
-                    {% if banner_info['banner_icon']|length > 1 %}
-                    <th scope="col">
-                      <div class="d-flex align-items-center justify-content-center">
-                        Banner 
-                        {%- for name, b_unit_icon in banner_info['banner_icon'].iteritems() %}
-                        {{ 'OR' if loop.index > 1 }}
-                        <img class="small-unit-icon mx-1" src="https://raw.githubusercontent.com/ffbesp/ffbeEquip/master/static/img/units/unit_icon_{{ b_unit_icon }}.png"> 
-                        {% endfor %}
-                      </div>
-                    </th>
-                    {% endif %}
-                    {% if not banner_info.get('allRainbowsOnBanner') %}
-                    <th scope="col">
-                      <div class="d-flex align-items-center justify-content-center">
-                        <i class="d-inline-block rainbow-crystal"></i> Rainbows
-                      </div>
-                    </th>
-                    {% endif %}
-                  </tr>
-                </thead>
-                <tbody>
-                  {% for x_value in range(1, 8) %}
-                  <tr>
-                    <th scope="row" class="table-dark">{{ x_value }}</th>
-                    <td>{{ percent_format(at_least_x[lap]['oneunit'].get(x_value, 0.0)) }}</td>
-                    {% if banner_info['banner_icon']|length > 1 %}
-                    <td>{{ percent_format(at_least_x[lap]['banner'].get(x_value, 0.0)) }}</td>
-                    {% endif %}
-                    {% if not banner_info.get('allRainbowsOnBanner') %}
-                    <td>{{ percent_format(at_least_x[lap]['general'].get(x_value, 0.0)) }}</td>
-                    {% endif %}
-                  </tr>
-                  {% endfor %}
-                </tbody>
-              </table>
+              <ul class="nav nav-pills mb-3" id="pills-x-{{ 'lap-' + lap|string }}" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" id="at-least-x-{{ 'lap-' + lap|string }}-tab" data-toggle="pill" href="#at-least-x-{{ 'lap-' + lap|string }}" role="tab" aria-controls="at-least-x-{{ 'lap-' + lap|string }}" aria-selected="true">At least X</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="exactly-x-{{ 'lap-' + lap|string }}-tab" data-toggle="pill" href="#exactly-x-{{ 'lap-' + lap|string }}" role="tab" aria-controls="exactly-x-{{ 'lap-' + lap|string }}" aria-selected="false">Exactly X</a>
+                </li>
+              </ul>
+              <div class="tab-content" id="pills-x-{{ 'lap-' + lap|string }}Content">
+                <div class="tab-pane fade show active" id="at-least-x-{{ 'lap-' + lap|string }}" role="tabpanel" aria-labelledby="at-least-x-{{ 'lap-' + lap|string }}-tab">
+                  <h4 class="mt-3">Probability for at least X units</h4>
+                  <table class="table table-sm table-hover table-striped at-least-x">
+                    <thead>
+                      <tr>
+                        <th scope="col" class="text-center">X</th>
+                        <th scope="col" class="text-center">
+                          <div class="d-flex align-items-center justify-content-center">
+                            <img class="small-unit-icon mr-1" src="{{ unit_icon }}"> {{ one_unit_name }}
+                          </div>
+                        </th>
+                        {% if banner_info['banner_icon']|length > 1 %}
+                        <th scope="col" class="text-center">
+                          <div class="d-flex align-items-center justify-content-center">
+                            Banner 
+                            {%- for name, b_unit_icon in banner_info['banner_icon'].iteritems() %}
+                            {{ 'OR' if loop.index > 1 }}
+                            <img class="small-unit-icon mx-1" src="https://raw.githubusercontent.com/ffbesp/ffbeEquip/master/static/img/units/unit_icon_{{ b_unit_icon }}.png"> 
+                            {% endfor %}
+                          </div>
+                        </th>
+                        {% endif %}
+                        {% if not banner_info.get('allRainbowsOnBanner') %}
+                        <th scope="col" class="text-center">
+                          <div class="d-flex align-items-center justify-content-center">
+                            <i class="d-inline-block rainbow-crystal"></i> Rainbows
+                          </div>
+                        </th>
+                        {% endif %}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for x_value in range(1, 8) %}
+                      <tr>
+                        <th scope="row" class="table-dark text-center">{{ x_value }}</th>
+                        <td class="text-center">{{ percent_format(at_least_x[lap]['oneunit'].get(x_value, 0.0)) }}</td>
+                        {% if banner_info['banner_icon']|length > 1 %}
+                        <td class="text-center">{{ percent_format(at_least_x[lap]['banner'].get(x_value, 0.0)) }}</td>
+                        {% endif %}
+                        {% if not banner_info.get('allRainbowsOnBanner') %}
+                        <td class="text-center">{{ percent_format(at_least_x[lap]['general'].get(x_value, 0.0)) }}</td>
+                        {% endif %}
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+                <div class="tab-pane fade" id="exactly-x-{{ 'lap-' + lap|string }}" role="tabpanel" aria-labelledby="exactly-x-{{ 'lap-' + lap|string }}-tab">
+                  <h4 class="mt-3">Probability for exactly X units</h4>
+                  <table class="table table-sm table-hover table-striped exactly-x">
+                    <thead>
+                      <tr>
+                        <th scope="col" class="text-center">X</th>
+                        <th scope="col" class="text-center">
+                          <div class="d-flex align-items-center justify-content-center">
+                            <img class="small-unit-icon mr-1" src="{{ unit_icon }}"> {{ one_unit_name }}
+                          </div>
+                        </th>
+                        {% if banner_info['banner_icon']|length > 1 %}
+                        <th scope="col" class="text-center">
+                          <div class="d-flex align-items-center justify-content-center">
+                            Banner 
+                            {%- for name, b_unit_icon in banner_info['banner_icon'].iteritems() %}
+                            {{ 'OR' if loop.index > 1 }}
+                            <img class="small-unit-icon mx-1" src="https://raw.githubusercontent.com/ffbesp/ffbeEquip/master/static/img/units/unit_icon_{{ b_unit_icon }}.png"> 
+                            {% endfor %}
+                          </div>
+                        </th>
+                        {% endif %}
+                        {% if not banner_info.get('allRainbowsOnBanner') %}
+                        <th scope="col" class="text-center">
+                          <div class="d-flex align-items-center justify-content-center">
+                            <i class="d-inline-block rainbow-crystal"></i> Rainbows
+                          </div>
+                        </th>
+                        {% endif %}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for x_value in range(0, 8) %}
+                      <tr>
+                        <th scope="row" class="table-dark text-center">{{ x_value }}</th>
+                        <td class="text-center">{{ percent_format(exactly_x[lap]['oneunit'].get(x_value, 0.0)) }}</td>
+                        {% if banner_info['banner_icon']|length > 1 %}
+                        <td class="text-center">{{ percent_format(exactly_x[lap]['banner'].get(x_value, 0.0)) }}</td>
+                        {% endif %}
+                        {% if not banner_info.get('allRainbowsOnBanner') %}
+                        <td class="text-center">{{ percent_format(exactly_x[lap]['general'].get(x_value, 0.0)) }}</td>
+                        {% endif %}
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              
             </div>
             {% endfor %}
           </div>

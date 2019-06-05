@@ -57,10 +57,13 @@ def create_banner_page(banner_id):
 
     step_up = stepupbanner.StepUpBanner(appdata.pull_type, banner_json)
 
-    rates_and_pulls, expected_value, at_least_x, summary = {}, {}, {}, {}
+    rates_and_pulls, expected_value, at_least_x, summary, exactly_x = {}, {}, {}, {}, {}
     for lap in range(1, step_up.laps + 1):
         r_and_p = { type_rate: { rate:pull*lap for rate, pull in rate_pull.iteritems() } for type_rate, rate_pull in step_up.rates_and_pulls_per_lap.iteritems() }
 
+        exactly_x[lap] = { 'general' : { key:round_for_display(value) for key,value in probabilitycalc.get_prob_exactly_x(r_and_p['general']).iteritems() },
+                          'banner' : { key:round_for_display(value) for key,value in probabilitycalc.get_prob_exactly_x(r_and_p['banner']).iteritems() },
+                          'oneunit' : { key:round_for_display(value) for key,value in probabilitycalc.get_prob_exactly_x(r_and_p['oneunit']).iteritems() } }
         at_least_x[lap] = { 'general' : { key:round_for_display(value) for key,value in probabilitycalc.get_prob_at_least_x(r_and_p['general']).iteritems() },
                           'banner' : { key:round_for_display(value) for key,value in probabilitycalc.get_prob_at_least_x(r_and_p['banner']).iteritems() },
                           'oneunit' : { key:round_for_display(value) for key,value in probabilitycalc.get_prob_at_least_x(r_and_p['oneunit']).iteritems() } }
@@ -99,6 +102,7 @@ def create_banner_page(banner_id):
                       'one_unit_name' : banner_json['singleUnitDisplayName'],
                       'expected_value' : expected_value,
                       'rates_and_pulls' : rates_and_pulls,
+                      'exactly_x' : exactly_x,
                       'at_least_x' : at_least_x,
                       'summary' : summary }
 

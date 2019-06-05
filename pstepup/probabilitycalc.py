@@ -118,3 +118,19 @@ def get_prob_at_least_x(rates_and_pulls):
     """
     prob_for_x = { rate:prob_for_exactly_x(rate, pull_count) for rate, pull_count in rates_and_pulls.iteritems() }
     return at_least_x(aggregate_prob_exactly_x(prob_for_x))
+
+
+def get_prob_exactly_x(rates_and_pulls):
+    """For a dictionary with rates as key and pulls as value, calculates overall probability to pull exactly X rainbows
+
+    Combines steps of: run prob_for_exactly_x for all rates and aggregate probabilities
+    
+    Returns:
+        Dictionary with x values as key and probability for exactly X successes as values
+
+    Examples:
+        print get_prob_exactly_x( { 0.03 : 10, 0.05 : 1 } ) 
+        > { 0 : 0.70055, 1 : 0.253537, 2 : 0.041558, 3: 0.004074, ... }
+    """
+    prob_for_x = { rate:prob_for_exactly_x(rate, pull_count) for rate, pull_count in rates_and_pulls.iteritems() }
+    return aggregate_prob_exactly_x(prob_for_x)
