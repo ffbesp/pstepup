@@ -59,14 +59,14 @@ def create_banner_page(banner_id):
 
     rates_and_pulls, expected_value, at_least_x, summary, exactly_x = {}, {}, {}, {}, {}
     for lap in range(1, step_up.laps + 1):
-        r_and_p = { type_rate: { rate:pull*lap for rate, pull in rate_pull.iteritems() } for type_rate, rate_pull in step_up.rates_and_pulls_per_lap.iteritems() }
+        r_and_p = { type_rate: { rate:pull*lap for rate, pull in rate_pull.items() } for type_rate, rate_pull in step_up.rates_and_pulls_per_lap.items() }
 
-        exactly_x[lap] = { 'general' : { key:round_for_display(value) for key,value in probabilitycalc.get_prob_exactly_x(r_and_p['general']).iteritems() },
-                          'banner' : { key:round_for_display(value) for key,value in probabilitycalc.get_prob_exactly_x(r_and_p['banner']).iteritems() },
-                          'oneunit' : { key:round_for_display(value) for key,value in probabilitycalc.get_prob_exactly_x(r_and_p['oneunit']).iteritems() } }
-        at_least_x[lap] = { 'general' : { key:round_for_display(value) for key,value in probabilitycalc.get_prob_at_least_x(r_and_p['general']).iteritems() },
-                          'banner' : { key:round_for_display(value) for key,value in probabilitycalc.get_prob_at_least_x(r_and_p['banner']).iteritems() },
-                          'oneunit' : { key:round_for_display(value) for key,value in probabilitycalc.get_prob_at_least_x(r_and_p['oneunit']).iteritems() } }
+        exactly_x[lap] = { 'general' : { key:round_for_display(value) for key,value in probabilitycalc.get_prob_exactly_x(r_and_p['general']).items() },
+                          'banner' : { key:round_for_display(value) for key,value in probabilitycalc.get_prob_exactly_x(r_and_p['banner']).items() },
+                          'oneunit' : { key:round_for_display(value) for key,value in probabilitycalc.get_prob_exactly_x(r_and_p['oneunit']).items() } }
+        at_least_x[lap] = { 'general' : { key:round_for_display(value) for key,value in probabilitycalc.get_prob_at_least_x(r_and_p['general']).items() },
+                          'banner' : { key:round_for_display(value) for key,value in probabilitycalc.get_prob_at_least_x(r_and_p['banner']).items() },
+                          'oneunit' : { key:round_for_display(value) for key,value in probabilitycalc.get_prob_at_least_x(r_and_p['oneunit']).items() } }
         summary[lap] = { 1 : round(at_least_x[lap]['oneunit'][1], 2),
                          2 : round(at_least_x[lap]['oneunit'][2], 2),
                          4 : round(at_least_x[lap]['oneunit'].get(4, 0.0), 2) }
@@ -78,7 +78,7 @@ def create_banner_page(banner_id):
 
     unit_icon = UNIT_ICON_BASE_URL + 'unit_icon_' + appdata.banner_info[banner_id]['banner_icon'][banner_json['singleUnitDisplayName']] + '.png'
     combined_banner_info = appdata.banner_info[banner_id]
-    for key, value in banner_json.iteritems():
+    for key, value in banner_json.items():
         if not key == 'steps':
             combined_banner_info[key] = value
 
@@ -120,8 +120,8 @@ def main(banner_id):
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
-        print 'ERROR: Specify a banner name to generate HTML file (e.g. "cid")'
+        print('ERROR: Specify a banner name to generate HTML file (e.g. "cid")')
     elif sys.argv[1] not in appdata.banner_info:
-        print 'ERROR: banner not found in appdata:', sys.argv[1]
+        print('ERROR: banner not found in appdata:', sys.argv[1])
     else:
         main(sys.argv[1])

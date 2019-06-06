@@ -1,6 +1,7 @@
 
 
 import scipy.special
+from functools import reduce
 
 
 def expected_value(rates_and_pulls):
@@ -15,7 +16,7 @@ def expected_value(rates_and_pulls):
         > 4
     """
     expected_value = 0
-    for rate, pull_count in rates_and_pulls.iteritems():
+    for rate, pull_count in rates_and_pulls.items():
         expected_value += rate * 1000000 * pull_count / 1000000
     return expected_value
 
@@ -68,13 +69,13 @@ def aggregate_prob_exactly_x(exactly_x_by_rate):
         if idx == 0: #start with longest list
             prob_matrix = exactly_x_by_rate[rate]
         elif idx == 1: #create tuples as keys, lists as values
-            prob_matrix = { (x1,x2):[prob1,prob2] for x1, prob1 in prob_matrix.iteritems() for x2, prob2 in exactly_x_by_rate[rate].iteritems() }
+            prob_matrix = { (x1,x2):[prob1,prob2] for x1, prob1 in prob_matrix.items() for x2, prob2 in exactly_x_by_rate[rate].items() }
         else:
-            prob_matrix = { x_tuple + (x2,):prob_list + [prob2] for x_tuple, prob_list in prob_matrix.iteritems() for x2, prob2 in exactly_x_by_rate[rate].iteritems() }
+            prob_matrix = { x_tuple + (x2,):prob_list + [prob2] for x_tuple, prob_list in prob_matrix.items() for x2, prob2 in exactly_x_by_rate[rate].items() }
 
     #aggregate probability for exactly x rainbows; sum tuple keys for X, multiply values list for probability
     prob_for_exactly = {}
-    for x_tuple, prob_list in prob_matrix.iteritems():
+    for x_tuple, prob_list in prob_matrix.items():
         exactly_x = sum(x_tuple)
         if exactly_x in prob_for_exactly:
             prob_for_exactly[exactly_x] += reduce(lambda a, b: a*b, prob_list) #multiply values and add to probability for exactly X
@@ -82,7 +83,7 @@ def aggregate_prob_exactly_x(exactly_x_by_rate):
             prob_for_exactly[exactly_x] = reduce(lambda a, b: a*b, prob_list)
 
     #discard very unlikely probabilities
-    return { k:v for k, v in prob_for_exactly.iteritems() if v >= 0.0000000001 or v == 0 }
+    return { k:v for k, v in prob_for_exactly.items() if v >= 0.0000000001 or v == 0 }
 
 
 def at_least_x(exactly_x):
@@ -116,7 +117,7 @@ def get_prob_at_least_x(rates_and_pulls):
         print get_prob_at_least_x( { 0.03 : 10, 0.05 : 1 } ) 
         > { 0 : 1.0, 1 : 0.299447, 2 : 0.0459100, 3: 0.0043520, ... }
     """
-    prob_for_x = { rate:prob_for_exactly_x(rate, pull_count) for rate, pull_count in rates_and_pulls.iteritems() }
+    prob_for_x = { rate:prob_for_exactly_x(rate, pull_count) for rate, pull_count in rates_and_pulls.items() }
     return at_least_x(aggregate_prob_exactly_x(prob_for_x))
 
 
@@ -132,5 +133,5 @@ def get_prob_exactly_x(rates_and_pulls):
         print get_prob_exactly_x( { 0.03 : 10, 0.05 : 1 } ) 
         > { 0 : 0.70055, 1 : 0.253537, 2 : 0.041558, 3: 0.004074, ... }
     """
-    prob_for_x = { rate:prob_for_exactly_x(rate, pull_count) for rate, pull_count in rates_and_pulls.iteritems() }
+    prob_for_x = { rate:prob_for_exactly_x(rate, pull_count) for rate, pull_count in rates_and_pulls.items() }
     return aggregate_prob_exactly_x(prob_for_x)

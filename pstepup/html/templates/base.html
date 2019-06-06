@@ -36,7 +36,7 @@
                 {% for banner in last_four_banners %}
                 <a class="dropdown-item pl-3" href="{{ siteurl }}/banner/{{ banner['banner_id'] }}/">
                   <div class="d-flex align-items-center">
-                    {% for name, unit_icon in banner['banner_icon'].iteritems() %}
+                    {% for name, unit_icon in banner['banner_icon']|dictsort %}
                     <img src="https://raw.githubusercontent.com/ffbesp/ffbeEquip/master/static/img/units/unit_icon_{{ unit_icon }}.png" class="small-unit-icon mr-1">
                     {% endfor %}
                     {{ banner['banner_name'] }}

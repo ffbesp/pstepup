@@ -21,4 +21,4 @@ def generate_html(file_loc, template_file, template_vars, search_path):
     template = get_page_template(template_file, search_path)
     with io.open(file_loc, 'w', encoding='utf-8') as html_file:
         html_file.write(template.render(template_vars))
-    print file_loc, 'write successful'
+    print(file_loc, 'write successful')

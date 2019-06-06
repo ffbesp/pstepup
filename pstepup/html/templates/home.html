@@ -17,7 +17,7 @@
           {% for banner in last_four_banners %}
           <a href="banner/{{ banner['banner_id'] }}/" class="btn btn-outline-success btn-lg btn-block pl-1">
             <div class="d-flex align-items-center justify-content-center">
-              {% for name, unit_icon in banner['banner_icon'].iteritems() %}<img class="mr-1" src="https://raw.githubusercontent.com/ffbesp/ffbeEquip/master/static/img/units/unit_icon_{{ unit_icon }}.png"> {% endfor %}
+              {% for name, unit_icon in banner['banner_icon']|dictsort %}<img class="mr-1" src="https://raw.githubusercontent.com/ffbesp/ffbeEquip/master/static/img/units/unit_icon_{{ unit_icon }}.png"> {% endfor %}
               {{ banner['banner_name'] }}
             </div>
           </a>
@@ -28,7 +28,7 @@
           {% for banner in last_four_single %}
           <a href="banner/{{ banner['banner_id'] }}/" class="btn btn-outline-success btn-lg btn-block pl-1">
             <div class="d-flex align-items-center justify-content-center">
-              {% for name, unit_icon in banner['banner_icon'].iteritems() %}<img class="mr-1" src="https://raw.githubusercontent.com/ffbesp/ffbeEquip/master/static/img/units/unit_icon_{{ unit_icon }}.png"> {% endfor %}
+              {% for name, unit_icon in banner['banner_icon']|dictsort %}<img class="mr-1" src="https://raw.githubusercontent.com/ffbesp/ffbeEquip/master/static/img/units/unit_icon_{{ unit_icon }}.png"> {% endfor %}
               {{ banner['banner_name'] }}
             </div>
           </a>
@@ -39,7 +39,7 @@
           {% for banner in last_four_multi %}
           <a href="banner/{{ banner['banner_id'] }}/" class="btn btn-outline-success btn-lg btn-block pl-1">
             <div class="d-flex align-items-center justify-content-center">
-              {% for name, unit_icon in banner['banner_icon'].iteritems() %}<img class="mr-1" src="https://raw.githubusercontent.com/ffbesp/ffbeEquip/master/static/img/units/unit_icon_{{ unit_icon }}.png"> {% endfor %}
+              {% for name, unit_icon in banner['banner_icon']|dictsort %}<img class="mr-1" src="https://raw.githubusercontent.com/ffbesp/ffbeEquip/master/static/img/units/unit_icon_{{ unit_icon }}.png"> {% endfor %}
               {{ banner['banner_name'] }}
             </div>
           </a>
@@ -53,7 +53,7 @@
           {% for banner in all_banner_info %}
           <a href="banner/{{ banner['banner_id'] }}/" class="btn btn-outline-info mr-2 mb-2">
             <div class="d-flex align-items-center">
-              {% for name, unit_icon in banner['banner_icon'].iteritems() %}<img class="small-unit-icon mr-1" src="https://raw.githubusercontent.com/ffbesp/ffbeEquip/master/static/img/units/unit_icon_{{ unit_icon }}.png"> {% endfor %}
+              {% for name, unit_icon in banner['banner_icon']|dictsort %}<img class="small-unit-icon mr-1" src="https://raw.githubusercontent.com/ffbesp/ffbeEquip/master/static/img/units/unit_icon_{{ unit_icon }}.png"> {% endfor %}
               {{ banner['banner_name'] }}
             </div>
           </a>

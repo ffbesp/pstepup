@@ -37,12 +37,12 @@ def sum_pulls_for_rates(rates, banner_info):
     rates_and_pulls = { 'general' : {}, 'banner' : {}, 'oneunit' : {} }
     banner_unit_count = banner_info['bannerRainbowCount']
 
-    for step_number, step_data in banner_info['steps'].iteritems():
+    for step_number, step_data in banner_info['steps'].items():
         general_rate_up = step_data.get('bonusFiveStarRate', 1)
         banner_rate_up = step_data.get('bonusBannerFiveStarRate')
         rate_up_multiplier = banner_rate_up if banner_rate_up is not None else general_rate_up
 
-        for p_type, pull_count in step_data['summons'].iteritems():
+        for p_type, pull_count in step_data['summons'].items():
             if not special_case_rates(p_type, rate_up_multiplier):
                 one_unit_banner_rate = rates[p_type]['bannerRainbowRate'] / banner_unit_count * rate_up_multiplier
                 banner_rate = rates[p_type]['bannerRainbowRate'] * rate_up_multiplier
@@ -82,7 +82,7 @@ class StepUpBanner:
         self.base_rates = copy.deepcopy(p_type)
         #account for On Banner only and EX rainbow rate
         if banner_info.get('allRainbowsOnBanner') == True:
-            for name, pull_rates in self.base_rates.iteritems():
+            for name, pull_rates in self.base_rates.items():
                 pull_rates['bannerRainbowRate'] = pull_rates['rainbowRate']
                 pull_rates['offBannerRainbowRate'] = 0
         else:

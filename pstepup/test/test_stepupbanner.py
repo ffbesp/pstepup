@@ -17,12 +17,12 @@ def test_all_pulls_accounted_for():
 
     step_up = stepupbanner.StepUpBanner(copy.deepcopy(appdata.pull_type), banner_info)
 
-    for step_number, step_data in banner_info['steps'].iteritems():
-        for pull_type, pull_count in step_data['summons'].iteritems():
+    for step_number, step_data in banner_info['steps'].items():
+        for pull_type, pull_count in step_data['summons'].items():
             expected_pulls += pull_count
 
-    for name, rate_dict in step_up.rates_and_pulls_per_lap.iteritems():
-        for key, value in rate_dict.iteritems():
+    for name, rate_dict in step_up.rates_and_pulls_per_lap.items():
+        for key, value in rate_dict.items():
             total_pulls += value
         if total_pulls != expected_pulls:
             errors.append(name + ': unexpected pull count (' + str(total_pulls) + ') vs expected count (' + str(expected_pulls) + ')' )
@@ -53,7 +53,7 @@ def test_sum_pulls_for_rates():
     assert rates_and_pulls['banner'] == { 0.01 : 20, 0.0375 : 2 }
     assert rates_and_pulls['oneunit'] == { 0.01 : 20, 0.0375 : 2 }
 
-    two_laps = { type_rate: { rate:pull*2 for rate, pull in r_and_p.iteritems() } for type_rate, r_and_p in rates_and_pulls.iteritems() }
+    two_laps = { type_rate: { rate:pull*2 for rate, pull in r_and_p.items() } for type_rate, r_and_p in rates_and_pulls.items() }
 
     assert two_laps['general'] == { 0.03 : 40, 0.05 : 4 }
     assert two_laps['banner'] == { 0.01 : 40, 0.0375 : 4 }

@@ -9,7 +9,7 @@ import generatehtml
 
 def get_last_four_banners(banner_type):
     banner_list = []
-    for banner_id, banner_details in appdata.banner_info.iteritems():
+    for banner_id, banner_details in appdata.banner_info.items():
         combined_banner_info = banner_details
         combined_banner_info['banner_id'] = banner_id
         banner_list.append(combined_banner_info)
@@ -24,14 +24,14 @@ def get_last_four_banners(banner_type):
 
 def get_all_banner_info():
     all_banner_info = []
-    for banner_id, banner_details in appdata.banner_info.iteritems():
+    for banner_id, banner_details in appdata.banner_info.items():
         combined_banner_info = banner_details
         combined_banner_info['banner_id'] = banner_id
         #if file exists, grab non-step details
         if os.path.isfile(os.path.join(os.getcwd(), os.pardir, 'banner', banner_details['banner_json'])):
             with open(os.path.join(os.getcwd(), os.pardir, 'banner', banner_details['banner_json']), 'r') as banner_file:
                 banner_json = json.load(banner_file)
-            for key, value in banner_json.iteritems():
+            for key, value in banner_json.items():
                 if not key == 'steps':
                     combined_banner_info[key] = value
         all_banner_info.append(combined_banner_info)

@@ -15,7 +15,7 @@
       <div class="row my-2">
         <div class="col-lg-5">
           <h3 class="my-3 d-flex align-items-center">
-            {% for name, b_unit_icon in banner_info['banner_icon'].iteritems() %}
+            {% for name, b_unit_icon in banner_info['banner_icon']|dictsort %}
             <img {{ 'class="ml-1" ' if loop.index > 1 }}src="https://raw.githubusercontent.com/ffbesp/ffbeEquip/master/static/img/units/unit_icon_{{ b_unit_icon }}.png">
             {% endfor %}
             <span class="ml-1">{{ banner_info['banner_name'] }}</span>
@@ -121,7 +121,7 @@
                     <th scope="col" class="text-center">
                       <div class="d-flex align-items-center justify-content-center">
                         Banner Rate
-                        {%- for name, b_unit_icon in banner_info['banner_icon'].iteritems() %}
+                        {%- for name, b_unit_icon in banner_info['banner_icon']|dictsort %}
                         {{ 'OR' if loop.index > 1 }}
                         <img class="small-unit-icon mx-1" src="https://raw.githubusercontent.com/ffbesp/ffbeEquip/master/static/img/units/unit_icon_{{ b_unit_icon }}.png"> 
                         {% endfor %}
@@ -172,7 +172,7 @@
                   <div class="card bg-light">
                     <div class="card-header d-flex align-items-center">
                       Banner Rainbows 
-                      {%- for name, b_unit_icon in banner_info['banner_icon'].iteritems() %}
+                      {%- for name, b_unit_icon in banner_info['banner_icon']|dictsort %}
                       {{ 'OR' if loop.index > 1 }}
                       <img class="small-unit-icon mx-1" src="https://raw.githubusercontent.com/ffbesp/ffbeEquip/master/static/img/units/unit_icon_{{ b_unit_icon }}.png"> 
                       {% endfor %}
@@ -222,7 +222,7 @@
                         <th scope="col" class="text-center">
                           <div class="d-flex align-items-center justify-content-center">
                             Banner 
-                            {%- for name, b_unit_icon in banner_info['banner_icon'].iteritems() %}
+                            {%- for name, b_unit_icon in banner_info['banner_icon']|dictsort %}
                             {{ 'OR' if loop.index > 1 }}
                             <img class="small-unit-icon mx-1" src="https://raw.githubusercontent.com/ffbesp/ffbeEquip/master/static/img/units/unit_icon_{{ b_unit_icon }}.png"> 
                             {% endfor %}
@@ -269,7 +269,7 @@
                         <th scope="col" class="text-center">
                           <div class="d-flex align-items-center justify-content-center">
                             Banner 
-                            {%- for name, b_unit_icon in banner_info['banner_icon'].iteritems() %}
+                            {%- for name, b_unit_icon in banner_info['banner_icon']|dictsort %}
                             {{ 'OR' if loop.index > 1 }}
                             <img class="small-unit-icon mx-1" src="https://raw.githubusercontent.com/ffbesp/ffbeEquip/master/static/img/units/unit_icon_{{ b_unit_icon }}.png"> 
                             {% endfor %}
