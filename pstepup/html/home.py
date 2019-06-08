@@ -39,18 +39,25 @@ def get_all_banner_info():
 
 
 def main():
-    template_vars = { 'title' : sitesettings.SITE_NAME,
-                    'siteurl' : sitesettings.SITE_URL,
-                    'sitename' : sitesettings.SITE_NAME,
-                    'meta_desc' : 'Expected values and probability per lap of step-up banners in Final Fantasy Brave Exvius (FFBE)',
-                    'last_four_banners' : get_last_four_banners('all'),
-                    'last_four_single' : get_last_four_banners('single'),
-                    'last_four_multi' : get_last_four_banners('multi'),
-                    'all_banner_info' : get_all_banner_info(), }
+    meta_desc = ('Expected values and probability per lap of step-up'
+        ' banners in Final Fantasy Brave Exvius (FFBE)')
+    template_vars = {
+        'title' : sitesettings.SITE_NAME,
+        'siteurl' : sitesettings.SITE_URL,
+        'sitename' : sitesettings.SITE_NAME,
+        'meta_desc' : meta_desc,
+        'last_four_banners' : get_last_four_banners('all'),
+        'last_four_single' : get_last_four_banners('single'),
+        'last_four_multi' : get_last_four_banners('multi'),
+        'all_banner_info' : get_all_banner_info(),
+    }
+
+    home_path = os.path.join(os.getcwd(), os.pardir, os.pardir, os.pardir, 'ffbesp.github.io')
 
     template_file = 'home.html'
-    html_file_loc = os.path.join(os.getcwd(), os.pardir, os.pardir, os.pardir, 'ffbesp.github.io', 'index.html')
-    generatehtml.generate_html(html_file_loc, template_file, template_vars, os.path.join(os.getcwd(), 'templates'))
+    html_file_loc = os.path.join(home_path, 'index.html')
+    generatehtml.generate_html(
+        html_file_loc, template_file, template_vars, os.path.join(os.getcwd(), 'templates'))
 
 
 
