@@ -10,29 +10,7 @@ import appdata
 import banner
 import sitesettings
 import generatehtml
-
-
-def get_last_four_banners(banner_type):
-    """Find last 4 banners in reverse chronological order
-
-    Args:
-        banner_type (str): types of banner to return (single, multi, or all)
-    """
-    banner_list = []
-    for banner_id, banner_details in appdata.banner_info.items():
-        combined_banner_info = banner_details
-        combined_banner_info['banner_id'] = banner_id
-        banner_list.append(combined_banner_info)
-
-    banner_sort = sorted(
-        banner_list, key=lambda k: k['duration']['start'].replace('-', ''), reverse=True)
-
-    if banner_type == 'single':
-        return [x for x in banner_sort if len(x['banner_icon']) == 1][:4]
-    elif banner_type == 'multi':
-        return [x for x in banner_sort if len(x['banner_icon']) > 1][:4]
-    else: #all
-        return banner_sort[:4]
+import nav
 
 
 def get_all_banner_info():
@@ -69,7 +47,7 @@ def create_about():
         'siteurl' : sitesettings.SITE_URL,
         'sitename' : sitesettings.SITE_NAME,
         'meta_desc' : meta_desc,
-        'last_four_banners' : get_last_four_banners('all'),
+        'last_four_banners' : nav.get_last_four_banners('all'),
     }
 
     about_path = os.path.join(sitesettings.LOCAL_FILE_PATH, 'about')
@@ -91,7 +69,7 @@ def create_banner_list():
         'siteurl' : sitesettings.SITE_URL,
         'sitename' : sitesettings.SITE_NAME,
         'meta_desc' : 'List of step-up banners in Final Fantasy Brave Exvius (FFBE)',
-        'last_four_banners' : get_last_four_banners('all'),
+        'last_four_banners' : nav.get_last_four_banners('all'),
         'all_banner_info' : get_all_banner_info(),
     }
 
@@ -117,9 +95,9 @@ def create_home():
         'siteurl' : sitesettings.SITE_URL,
         'sitename' : sitesettings.SITE_NAME,
         'meta_desc' : meta_desc,
-        'last_four_banners' : get_last_four_banners('all'),
-        'last_four_single' : get_last_four_banners('single'),
-        'last_four_multi' : get_last_four_banners('multi'),
+        'last_four_banners' : nav.get_last_four_banners('all'),
+        'last_four_single' : nav.get_last_four_banners('single'),
+        'last_four_multi' : nav.get_last_four_banners('multi'),
         'all_banner_info' : get_all_banner_info(),
     }
 
