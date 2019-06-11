@@ -28,6 +28,15 @@ pull_type = {
 
 #only step-up banners; types = limited_time_collab, limited_time_seasonal, new_permanent_units, existing_permanent_units
 banner_info = {
+    "aerith-redxiii" : {
+        "banner_name" : "Aerith/Red XIII 25K",
+        "banner_type" : "new_permanent_units",
+        "duration" : { "start" : "2019-06-12" , "end" : "2019-06-28" },
+        "news_image_link" : "https://lapis-prod-staticnews-gumi-sg.akamaized.net/prod//en/img/20191006FFVIIAerith.jpg",
+        "banner_json" : "aerith-redxiii.json",
+        "banner_icon" : { "Aerith" : "207000407", "Red XIII" : "207000507" },
+        "banner_img" : "aerith-redxiii.jpg"
+    },
     "regina" : {
         "banner_name" : "Regina 24K",
         "banner_type" : "new_permanent_units",
