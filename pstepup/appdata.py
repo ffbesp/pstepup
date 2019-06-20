@@ -28,6 +28,15 @@ pull_type = {
 
 #only step-up banners; types = limited_time_collab, limited_time_seasonal, new_permanent_units, existing_permanent_units
 banner_info = {
+    "randi-flammie" : {
+        "banner_name" : "Randi/Flammie 21K",
+        "banner_type" : "limited_time_collab",
+        "duration" : { "start" : "2019-06-21" , "end" : "2019-07-05" },
+        "news_image_link" : "https://lapis-prod-staticnews-gumi-sg.akamaized.net/prod//en/img/20190618FlammieFeaturedSummon.jpg",
+        "banner_json" : "randi-flammie.json",
+        "banner_icon" : { "Randi" : "304000107", "Flammie" : "304000407" },
+        "banner_img" : "randi-flammie.jpg"
+    },
     "aerith-redxiii" : {
         "banner_name" : "Aerith/Red XIII 25K",
         "banner_type" : "new_permanent_units",

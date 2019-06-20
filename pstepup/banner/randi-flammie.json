@@ -1,0 +1,51 @@
+{
+  "bannerName" : "Randi/Flammie 21K",
+  "totalAvailableLaps" : 5,
+  "totalPerLapCost" : 21000,
+  "fiveStarBaseUnitCount" : 115,
+  "bannerRainbowCount" : 2,
+  "singleUnitDisplayName" : "Randi",
+
+  "steps" : {
+    "1" : {
+      "cost" : 3000,
+      "summons" : {
+        "guaranteedGold" : 1,
+        "regular" : 5
+      },
+      "extraDrop" : [ "5x Max-lvl King Metal Minituar" ]
+    },
+    "2" : {
+      "cost" : 4000,
+      "summons" : {
+        "guaranteedGold" : 1,
+        "regular" : 7
+      },
+      "extraDrop" : [ "Regular summon ticket" ]
+    },
+    "3" : {
+      "cost" : 5000,
+      "summons" : {
+        "regular" : 10,
+        "guaranteedEXRainbow" : 1
+      },
+      "extraDrop" : [ "Collection of Mana Limited Exchange Ticket [F/R]" ]
+    },
+    "4" : {
+      "cost" : 4000,
+      "summons" : {
+        "guaranteedGold" : 1,
+        "regular" : 10
+      },
+      "extraDrop" : [ "5-star Trust Moogle (ALL 10%)", "Collection of Mana Limited Exchange Ticket [F/R]" ]
+    },
+    "5" : {
+      "cost" : 5000,
+      "summons" : {
+        "regular" : 10,
+        "guaranteedBannerRainbow" : 1
+      },
+      "extraDrop" : [ "Collection of Mana Limited Exchange Ticket [F/R]" ]
+    }
+  }
+}
