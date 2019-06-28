@@ -28,6 +28,15 @@ pull_type = {
 
 #only step-up banners; types = limited_time_collab, limited_time_seasonal, new_permanent_units, existing_permanent_units
 banner_info = {
+    "kayaka-daileen" : {
+        "banner_name" : "K. Ayaka/D. Aileen 25K",
+        "banner_type" : "new_permanent_units",
+        "duration" : { "start" : "2019-06-28" , "end" : "2019-08-01" },
+        "news_image_link" : "https://lapis-prod-staticnews-gumi-sg.akamaized.net/prod//en/img/20190625KimonoAyakaFeaturedSummon.jpg",
+        "banner_json" : "kayaka-daileen.json",
+        "banner_icon" : { "Kimono Ayaka" : "100021907", "Dressy Aileen" : "100022007" },
+        "banner_img" : "kayaka-daileen.jpg"
+    },
     "randi-flammie" : {
         "banner_name" : "Randi/Flammie 21K",
         "banner_type" : "limited_time_collab",
