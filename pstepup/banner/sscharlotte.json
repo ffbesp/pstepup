@@ -1,10 +1,10 @@
 {
-  "bannerName" : "Regina 24K",
+  "bannerName" : "SS Charlotte 24K",
   "totalAvailableLaps" : 1,
   "totalPerLapCost" : 24000,
-  "fiveStarBaseUnitCount" : 111,
+  "fiveStarBaseUnitCount" : 116,
   "bannerRainbowCount" : 1,
-  "singleUnitDisplayName" : "Regina",
+  "singleUnitDisplayName" : "SS Charlotte",
 
   "steps" : {
     "1" : {
@@ -21,7 +21,7 @@
         "guaranteedGold" : 2,
         "regular" : 9
       },
-      "extraDrop" : [ "3x Max-lvl King Metal Minituar" ]
+      "extraDrop" : [ "10x Max-lvl King Metal Minituar" ]
     },
     "3" : {
       "cost" : 5000,
