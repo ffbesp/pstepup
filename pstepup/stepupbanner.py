@@ -3,6 +3,32 @@
 
 import copy
 
+def get_custom_rates(banner_name):
+    """Returns custom rates that apply to all pulls on step-up banner
+
+    Necessary for step-ups with abnormal base rates e.g. SS Charlotte banner featuring
+    5% rainbow rates
+
+    Returns:
+        A tuple of regular and guaranteedGold rates
+
+    Examples:
+        regular, gold = get_custom_rates('SS Charlotte 24K')
+    """
+    if banner_name == 'SS Charlotte 24K':
+        regular = {
+            'rainbowRate' : 0.05,
+            'bannerRainbowRate' : 0.015,
+            'offBannerRainbowRate' : 0.035
+        }
+        guaranteedGold = {
+            'rainbowRate' : 0.07,
+            'bannerRainbowRate' : 0.056,
+            'offBannerRainbowRate' : 0.014
+        }
+        return (regular, guaranteedGold)
+
+
 def special_case_rates(pull_type, rate_up_multiplier):
     """Check for scenarios with special case pull rates, and return new rates if necessary
 
@@ -93,6 +119,11 @@ class StepUpBanner:
             banner_info (dict): number of laps, banner metadata, and step details
         """
         self.base_rates = copy.deepcopy(p_type)
+        #set custom rates if applicable
+        if banner_info.get('customBannerRates'):
+            regular, gold = get_custom_rates(banner_info.get('bannerName'))
+            self.base_rates['regular'] = regular
+            self.base_rates['guaranteedGold'] = gold
         #account for On Banner only and EX rainbow rate
         if banner_info.get('allRainbowsOnBanner'):
             for pull_rates in self.base_rates.values():
