@@ -27,6 +27,18 @@ def get_custom_rates(banner_name):
             'offBannerRainbowRate' : 0.014
         }
         return (regular, guaranteedGold)
+    elif banner_name in ['Yuffie 24K', 'Zack 24K']:
+        regular = {
+            'rainbowRate' : 0.05,
+            'bannerRainbowRate' : 0.01,
+            'offBannerRainbowRate' : 0.04
+        }
+        guaranteedGold = {
+            'rainbowRate' : 0.07,
+            'bannerRainbowRate' : 0.0375,
+            'offBannerRainbowRate' : 0.0325
+        }
+        return (regular, guaranteedGold)
 
 
 def special_case_rates(pull_type, rate_up_multiplier):

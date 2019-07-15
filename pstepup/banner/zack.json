@@ -1,5 +1,6 @@
 {
   "bannerName" : "Zack 24K",
+  "customBannerRates" : true,
   "totalAvailableLaps" : 1,
   "totalPerLapCost" : 24000,
   "fiveStarBaseUnitCount" : 118,
