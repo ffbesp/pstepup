@@ -28,6 +28,24 @@ pull_type = {
 
 #only step-up banners; types = limited_time_collab, limited_time_seasonal, new_permanent_units, existing_permanent_units
 banner_info = {
+    "yuffie" : {
+        "banner_name" : "Yuffie 24K",
+        "banner_type" : "new_permanent_units",
+        "duration" : { "start" : "2019-07-12" , "end" : "2019-07-26" },
+        "news_image_link" : "https://lapis-prod-staticnews-gumi-sg.akamaized.net/prod//en/img/20190709ZackYuffieFeaturedSummon.jpg",
+        "banner_json" : "yuffie.json",
+        "banner_icon" : { "Yuffie" : "207000607" },
+        "banner_img" : "yuffie.jpg"
+    },
+    "zack" : {
+        "banner_name" : "Zack 24K",
+        "banner_type" : "new_permanent_units",
+        "duration" : { "start" : "2019-07-12" , "end" : "2019-07-26" },
+        "news_image_link" : "https://lapis-prod-staticnews-gumi-sg.akamaized.net/prod//en/img/20190709ZackYuffieFeaturedSummon.jpg",
+        "banner_json" : "zack.json",
+        "banner_icon" : { "Zack" : "207001107" },
+        "banner_img" : "zack.jpg"
+    },
     "sscharlotte" : {
         "banner_name" : "SS Charlotte 24K",
         "banner_type" : "new_permanent_units",
