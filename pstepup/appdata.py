@@ -28,6 +28,24 @@ pull_type = {
 
 #only step-up banners; types = limited_time_collab, limited_time_seasonal, new_permanent_units, existing_permanent_units
 banner_info = {
+    "elena" : {
+        "banner_name" : "Elena 20K",
+        "banner_type" : "new_permanent_units",
+        "duration" : { "start" : "2019-07-19" , "end" : "2019-08-02" },
+        "news_image_link" : "https://lapis-prod-staticnews-gumi-sg.akamaized.net/prod//en/img/20190716ElenaMorganaSummon4.jpg",
+        "banner_json" : "elena.json",
+        "banner_icon" : { "Elena" : "401008407" },
+        "banner_img" : "elena.jpg"
+    },
+    "elena-morgana" : {
+        "banner_name" : "Elena/Morgana 24K",
+        "banner_type" : "new_permanent_units",
+        "duration" : { "start" : "2019-07-19" , "end" : "2019-08-02" },
+        "news_image_link" : "https://lapis-prod-staticnews-gumi-sg.akamaized.net/prod//en/img/20190716ElenaMorganaSummon4.jpg",
+        "banner_json" : "elena-morgana.json",
+        "banner_icon" : { "Elena" : "401008407", "Morgana" : "401007007" },
+        "banner_img" : "elena-morgana.jpg"
+    },
     "yuffie" : {
         "banner_name" : "Yuffie 24K",
         "banner_type" : "new_permanent_units",

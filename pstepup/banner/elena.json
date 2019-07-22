@@ -1,0 +1,50 @@
+{
+  "bannerName" : "Elena 20K",
+  "totalAvailableLaps" : 1,
+  "totalPerLapCost" : 20000,
+  "fiveStarBaseUnitCount" : 120,
+  "bannerRainbowCount" : 1,
+  "singleUnitDisplayName" : "Elena",
+
+  "steps" : {
+    "1" : {
+      "cost" : 0,
+      "summons" : {
+        "guaranteedGold" : 1,
+        "regular" : 10
+      }
+    },
+    "2" : {
+      "cost" : 5000,
+      "summons" : {
+        "guaranteedGold" : 2,
+        "regular" : 9
+      },
+      "extraDrop" : [ "10x Max-lvl King Metal Minituar" ]
+    },
+    "3" : {
+      "cost" : 5000,
+      "summons" : {
+        "guaranteedGold" : 2,
+        "regular" : 8,
+        "guaranteedEXRainbow" : 1
+      }
+    },
+    "4" : {
+      "cost" : 5000,
+      "summons" : {
+        "guaranteedGold" : 2,
+        "regular" : 9
+      },
+      "extraDrop" : [ "4-star+ guaranteed ticket" ]
+    },
+    "5" : {
+      "cost" : 5000,
+      "summons" : {
+        "guaranteedGold" : 2,
+        "regular" : 8,
+        "guaranteedBannerRainbow" : 1
+      }
+    }
+  }
+}

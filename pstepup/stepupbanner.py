@@ -27,7 +27,7 @@ def get_custom_rates(banner_name):
             'offBannerRainbowRate' : 0.014
         }
         return (regular, guaranteedGold)
-    elif banner_name in ['Yuffie 24K', 'Zack 24K']:
+    elif banner_name in ['Yuffie 24K', 'Zack 24K', 'Elena/Morgana 24K']:
         regular = {
             'rainbowRate' : 0.05,
             'bannerRainbowRate' : 0.01,
