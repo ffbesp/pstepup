@@ -1,0 +1,46 @@
+{
+  "bannerName" : "Rivera 12K",
+  "customBannerRates" : true,
+  "totalAvailableLaps" : 1,
+  "totalPerLapCost" : 12000,
+  "fiveStarBaseUnitCount" : 121,
+  "bannerRainbowCount" : 1,
+  "singleUnitDisplayName" : "Rivera",
+
+  "steps" : {
+    "1" : {
+      "cost" : 1000,
+      "bonusBannerFiveStarRate" : 1.5,
+      "summons" : {
+        "guaranteedGold" : 1,
+        "regular" : 1
+      }
+    },
+    "2" : {
+      "cost" : 2000,
+      "bonusBannerFiveStarRate" : 1.5,
+      "summons" : {
+        "guaranteedGold" : 1,
+        "regular" : 3
+      },
+      "extraDrop" : [ "4-star Trust Moogle (ALL 5%)" ]
+    },
+    "3" : {
+      "cost" : 4000,
+      "bonusBannerFiveStarRate" : 2,
+      "summons" : {
+        "guaranteedGold" : 1,
+        "regular" : 7
+      },
+      "extraDrop" : [ "5-star Trust Moogle (ALL 10%)" ]
+    },
+    "4" : {
+      "cost" : 5000,
+      "summons" : {
+        "guaranteedGold" : 1,
+        "regular" : 9,
+        "guaranteedBannerRainbow" : 1
+      }
+    }
+  }
+}
