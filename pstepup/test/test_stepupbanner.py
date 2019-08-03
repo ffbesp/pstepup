@@ -6,6 +6,7 @@ from pstepup import stepupbanner, appdata
 
 def create_basic_banner():
     return {
+        'bannerName' : 'Test',
         'bannerRainbowCount' : 1,
         'totalAvailableLaps' : 1,
         'fiveStarBaseUnitCount' : 100,
@@ -62,6 +63,7 @@ def test_guaranteed_with_rate_up():
     banner_info['steps']['2']['bonusBannerFiveStarRate'] = 5
     banner_info['steps']['2']['summons']['regular'] = 9
     banner_info['steps']['2']['summons']['guaranteedRainbowWithRateUp'] = 1
+    banner_info['bannerName'] = 'Cid 12K'
 
     expected_general_rates_and_pulls = {0.03 : 10, 0.05 : 1, 0.2 : 1, 0.07 : 9, 1.0 : 1}
     expected_banner_rates_and_pulls = {0.01 : 10, 0.0375 : 1, 0.1875 : 1, 0.05 : 9, 0.25 : 1}
