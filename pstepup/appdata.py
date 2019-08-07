@@ -28,7 +28,7 @@ pull_type = {
 
 #only step-up banners; types = limited_time_collab, limited_time_seasonal, new_permanent_units, existing_permanent_units
 banner_info = {
-    "rivera" : {
+    "rlightning-nhope" : {
         "banner_name" : "R. Lightning/N. Hope 25K",
         "banner_type" : "new_permanent_units",
         "duration" : { "start" : "2019-07-31" , "end" : "2019-08-16" },
