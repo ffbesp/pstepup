@@ -21,6 +21,7 @@ import nav
 
 
 UNIT_ICON_BASE_URL = 'https://raw.githubusercontent.com/ffbesp/ffbeEquip/master/static/img/units/'
+FLUCTUATING_OFFBANNER_RATES = ['rivera']
 
 def round_for_display(decimal_value):
     """Round a decimal to the thousandths place for web display
@@ -130,6 +131,16 @@ def create_banner_page(banner_id):
         rates_and_pulls[lap] = (
             combine_rates_and_pulls_for_display(
                 r_and_p['general'], r_and_p['banner'], r_and_p['oneunit']))
+        if banner_id in FLUCTUATING_OFFBANNER_RATES:
+            for rate_list in rates_and_pulls[lap]:
+                if rate_list[3] == 100:
+                    rate_list[1] = 100
+                elif rate_list[3] < 5:
+                    rate_list[1] = 5
+                elif rate_list[3] >= 5 and rate_list[3] < 7.5:
+                    rate_list[1] = 7
+                elif rate_list[3] == 7.5:
+                    rate_list[1] = 8.75
 
     unit_icon = (
         UNIT_ICON_BASE_URL + 'unit_icon_'
