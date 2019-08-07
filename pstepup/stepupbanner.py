@@ -3,7 +3,9 @@
 
 import copy
 
-FIVE_PERCENT_RAINBOW_RATE_BANNERS = ['Yuffie 24K', 'Zack 24K', 'Elena/Morgana 24K', 'Rivera 12K']
+FIVE_PERCENT_RAINBOW_RATE_BANNERS = [
+    'Yuffie 24K', 'Zack 24K', 'Elena/Morgana 24K', 'Rivera 12K', 'R. Lightning/N. Hope 25K'
+]
 FIVE_TIMES_RATE_G_RAINBOW_BANNERS = [
     'Nagi 12K', 'Yego 12K', 'Crimson 12K', 'Karlette 12K', 'Yuraisha 12K', 'Cid 12K'
 ]
