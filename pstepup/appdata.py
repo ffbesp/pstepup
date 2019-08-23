@@ -28,6 +28,15 @@ pull_type = {
 
 #only step-up banners; types = limited_time_collab, limited_time_seasonal, new_permanent_units, existing_permanent_units
 banner_info = {
+    "kfina" : {
+        "banner_name" : "Kimono Fina 20K",
+        "banner_type" : "new_permanent_units",
+        "duration" : { "start" : "2019-08-26" , "end" : "2019-09-02" },
+        "news_image_link" : "https://lapis-prod-staticnews-gumi-sg.akamaized.net/prod//en/img/KimonoFinaFeatureSummon.jpg",
+        "banner_json" : "kfina.json",
+        "banner_icon" : { "Kimono Fina" : "100024307" },
+        "banner_img" : "kfina.jpg"
+    },
     "primrose-olberic" : {
         "banner_name" : "Primrose/Olberic 21K",
         "banner_type" : "limited_time_collab",
