@@ -28,6 +28,15 @@ pull_type = {
 
 #only step-up banners; types = limited_time_collab, limited_time_seasonal, new_permanent_units, existing_permanent_units
 banner_info = {
+    "fid-cilka-rerun" : {
+        "banner_name" : "Fid/Cilka 25K",
+        "banner_type" : "existing_permanent_units",
+        "duration" : { "start" : "2019-08-19" , "end" : "2019-08-30" },
+        "news_image_link" : "https://lapis-prod-staticnews-gumi-sg.akamaized.net/prod//en/img/20190813FitraFidGachaRerun.jpg",
+        "banner_json" : "fid-cilka-rerun.json",
+        "banner_icon" : { "Fid" : "100020505", "Cilka" : "100020905" },
+        "banner_img" : "fid-cilka-rerun.jpg"
+    },
     "kaito-tsukiko" : {
         "banner_name" : "Kaito/Tsukiko 24K",
         "banner_type" : "new_permanent_units",
