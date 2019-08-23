@@ -28,6 +28,15 @@ pull_type = {
 
 #only step-up banners; types = limited_time_collab, limited_time_seasonal, new_permanent_units, existing_permanent_units
 banner_info = {
+    "primrose-olberic" : {
+        "banner_name" : "Primrose/Olberic 21K",
+        "banner_type" : "limited_time_collab",
+        "duration" : { "start" : "2019-08-23" , "end" : "2019-09-06" },
+        "news_image_link" : "https://lapis-prod-staticnews-gumi-sg.akamaized.net/prod//en/img/FeaturedSummonOctopathTraveler.png",
+        "banner_json" : "primrose-olberic.json",
+        "banner_icon" : { "Primrose" : "334000107", "Olberic" : "334000207" },
+        "banner_img" : "primrose-olberic.png"
+    },
     "fid-cilka-rerun" : {
         "banner_name" : "Fid/Cilka 25K",
         "banner_type" : "existing_permanent_units",

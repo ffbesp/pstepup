@@ -1,0 +1,53 @@
+{
+  "bannerName" : "Primrose/Olberic 21K",
+  "totalAvailableLaps" : 3,
+  "totalPerLapCost" : 21000,
+  "fiveStarBaseUnitCount" : 127,
+  "bannerRainbowCount" : 2,
+  "singleUnitDisplayName" : "Primrose",
+
+  "steps" : {
+    "1" : {
+      "cost" : 2000,
+      "summons" : {
+        "guaranteedGold" : 1,
+        "regular" : 4
+      },
+      "extraDrop" : [ "5-star Trust Moogle (ALL 10%)" ]
+    },
+    "2" : {
+      "cost" : 4000,
+      "summons" : {
+        "guaranteedGold" : 1,
+        "regular" : 8
+      },
+      "extraDrop" : [ "5-star Trust Moogle (ALL 10%)" ]
+    },
+    "3" : {
+      "cost" : 5000,
+      "summons" : {
+        "guaranteedGold" : 2,
+        "regular" : 9
+      },
+      "extraDrop" : [ "4-star+ guaranteed ticket", "Octopath Traveler Limited Exchange Ticket [P/O]" ]
+    },
+    "4" : {
+      "cost" : 5000,
+      "summons" : {
+        "guaranteedGold" : 1,
+        "regular" : 9,
+        "guaranteedEXRainbow" : 1
+      },
+      "extraDrop" : [ "Octopath Traveler Limited Exchange Ticket [P/O]" ]
+    },
+    "5" : {
+      "cost" : 5000,
+      "summons" : {
+        "guaranteedGold" : 2,
+        "regular" : 8,
+        "guaranteedBannerRainbow" : 1
+      },
+      "extraDrop" : [ "Octopath Traveler Limited Exchange Ticket [P/O]" ]
+    }
+  }
+}
