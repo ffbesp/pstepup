@@ -28,6 +28,15 @@ pull_type = {
 
 #only step-up banners; types = limited_time_collab, limited_time_seasonal, new_permanent_units, existing_permanent_units
 banner_info = {
+    "bartz-lenna" : {
+        "banner_name" : "Bartz/Lenna 25K",
+        "banner_type" : "new_permanent_units",
+        "duration" : { "start" : "2019-08-30" , "end" : "2019-09-13" },
+        "news_image_link" : "https://lapis-prod-staticnews-gumi-sg.akamaized.net/prod//en/img/20190827FFVFeatureSummon3.jpg",
+        "banner_json" : "bartz-lenna.json",
+        "banner_icon" : { "Bartz" : "205001107", "Lenna" : "205001207" },
+        "banner_img" : "bartz-lenna.jpg"
+    },
     "kfina" : {
         "banner_name" : "Kimono Fina 20K",
         "banner_type" : "new_permanent_units",
