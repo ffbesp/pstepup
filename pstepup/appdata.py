@@ -28,6 +28,15 @@ pull_type = {
 
 #only step-up banners; types = limited_time_collab, limited_time_seasonal, new_permanent_units, existing_permanent_units
 banner_info = {
+    "sol" : {
+        "banner_name" : "Sol 24K",
+        "banner_type" : "new_permanent_units",
+        "duration" : { "start" : "2019-09-13" , "end" : "2019-09-27" },
+        "news_image_link" : "https://lapis-prod-staticnews-gumi-sg.akamaized.net/prod//en/img/FeaturedSummonSol.jpg",
+        "banner_json" : "sol.json",
+        "banner_icon" : { "Sol" : "100022307" },
+        "banner_img" : "sol.jpg"
+    },
     "bartz-lenna" : {
         "banner_name" : "Bartz/Lenna 25K",
         "banner_type" : "new_permanent_units",

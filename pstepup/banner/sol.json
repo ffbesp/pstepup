@@ -1,0 +1,51 @@
+{
+  "bannerName" : "Sol 24K",
+  "totalAvailableLaps" : 1,
+  "totalPerLapCost" : 24000,
+  "fiveStarBaseUnitCount" : 129,
+  "bannerRainbowCount" : 1,
+  "singleUnitDisplayName" : "Sol",
+
+  "steps" : {
+    "1" : {
+      "cost" : 4000,
+      "summons" : {
+        "guaranteedGold" : 2,
+        "regular" : 9
+      },
+      "extraDrop" : [ "4-star Trust Moogle (ALL 5%)" ]
+    },
+    "2" : {
+      "cost" : 5000,
+      "summons" : {
+        "guaranteedGold" : 2,
+        "regular" : 9
+      },
+      "extraDrop" : [ "3x Max-lvl King Metal Minituar" ]
+    },
+    "3" : {
+      "cost" : 5000,
+      "summons" : {
+        "guaranteedGold" : 2,
+        "regular" : 8,
+        "guaranteedEXRainbow" : 1
+      }
+    },
+    "4" : {
+      "cost" : 5000,
+      "summons" : {
+        "guaranteedGold" : 2,
+        "regular" : 9
+      },
+      "extraDrop" : [ "10% 5-star summon ticket" ]
+    },
+    "5" : {
+      "cost" : 5000,
+      "summons" : {
+        "guaranteedGold" : 2,
+        "regular" : 8,
+        "guaranteedBannerRainbow" : 1
+      }
+    }
+  }
+}
