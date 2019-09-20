@@ -1,0 +1,28 @@
+{
+  "bannerName" : "AI Katy 10K",
+  "totalAvailableLaps" : 4,
+  "totalPerLapCost" : 10000,
+  "fiveStarBaseUnitCount" : 130,
+  "bannerRainbowCount" : 1,
+  "singleUnitDisplayName" : "A.I. Katy",
+
+  "steps" : {
+    "1" : {
+      "cost" : 5000,
+      "bonusBannerFiveStarRate" : 2,
+      "summons" : {
+        "guaranteedGold" : 1,
+        "regular" : 10
+      },
+      "extraDrop" : [ "AI Katy 50% Trust Moogle" ]
+    },
+    "2" : {
+      "cost" : 5000,
+      "summons" : {
+        "guaranteedGold" : 1,
+        "regular" : 9,
+        "guaranteedBannerRainbow" : 1
+      }
+    }
+  }
+}

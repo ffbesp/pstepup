@@ -28,6 +28,15 @@ pull_type = {
 
 #only step-up banners; types = limited_time_collab, limited_time_seasonal, new_permanent_units, existing_permanent_units
 banner_info = {
+    "aikaty" : {
+        "banner_name" : "AI Katy 10K",
+        "banner_type" : "limited_time_collab",
+        "duration" : { "start" : "2019-09-19" , "end" : "2019-09-30" },
+        "news_image_link" : "https://lapis-prod-staticnews-gumi-sg.akamaized.net/prod//en/img/20190917KatyPerryFeaturedSummon.jpg",
+        "banner_json" : "aikaty.json",
+        "banner_icon" : { "A.I. Katy" : "401007407" },
+        "banner_img" : "aikaty.jpg"
+    },
     "sol" : {
         "banner_name" : "Sol 24K",
         "banner_type" : "new_permanent_units",
