@@ -28,6 +28,24 @@ pull_type = {
 
 #only step-up banners; types = limited_time_collab, limited_time_seasonal, new_permanent_units, existing_permanent_units
 banner_info = {
+    "sora-khloud-rerun" : {
+        "banner_name" : "Sora/KHloud 20K",
+        "banner_type" : "limited_time_collab",
+        "duration" : { "start" : "2019-09-23" , "end" : "2019-10-04" },
+        "news_image_link" : "https://lapis-prod-staticnews-gumi-sg.akamaized.net/prod//en/img/20190917FeaturedSummonSoraCloudKH.jpg",
+        "banner_json" : "sora-khloud-rerun.json",
+        "banner_icon" : { "Sora" : "335000107", "KHloud" : "335000207" },
+        "banner_img" : "sora-khloud-rerun.jpg"
+    },
+    "riku-khsephiroth" : {
+        "banner_name" : "Riku/KH Sephiroth 24K",
+        "banner_type" : "limited_time_collab",
+        "duration" : { "start" : "2019-09-20" , "end" : "2019-10-04" },
+        "news_image_link" : "https://lapis-prod-staticnews-gumi-sg.akamaized.net/prod//en/img/KHGachRikuSephirothKH.jpg",
+        "banner_json" : "riku-khsephiroth.json",
+        "banner_icon" : { "Riku" : "335000407", "KH Sephiroth" : "335000307" },
+        "banner_img" : "riku-khsephiroth.jpg"
+    },
     "aikaty" : {
         "banner_name" : "AI Katy 10K",
         "banner_type" : "limited_time_collab",
