@@ -28,6 +28,15 @@ pull_type = {
 
 #only step-up banners; types = limited_time_collab, limited_time_seasonal, new_permanent_units, existing_permanent_units
 banner_info = {
+    "mordegon" : {
+        "banner_name" : "Mordegon 20K",
+        "banner_type" : "limited_time_collab",
+        "duration" : { "start" : "2019-09-27" , "end" : "2019-10-11" },
+        "news_image_link" : "https://lapis-prod-staticnews-gumi-sg.akamaized.net/prod//en/img/20190924DQXISMordegonGreatDragonSummon.jpg",
+        "banner_json" : "mordegon.json",
+        "banner_icon" : { "Mordegon" : "337000507" },
+        "banner_img" : "mordegon.jpg"
+    },
     "sora-khloud-rerun" : {
         "banner_name" : "Sora/KHloud 20K",
         "banner_type" : "limited_time_collab",
