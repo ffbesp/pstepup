@@ -28,6 +28,15 @@ pull_type = {
 
 #only step-up banners; types = limited_time_collab, limited_time_seasonal, new_permanent_units, existing_permanent_units
 banner_info = {
+    "wrfirion-dkleon" : {
+        "banner_name" : "WR Firion/DK Leon 24K",
+        "banner_type" : "new_permanent_units",
+        "duration" : { "start" : "2019-10-04" , "end" : "2019-10-18" },
+        "news_image_link" : "https://lapis-prod-staticnews-gumi-sg.akamaized.net/prod//en/img/20191001FFIICGFirionFeaturedSummon.jpg",
+        "banner_json" : "wrfirion-dkleon.json",
+        "banner_icon" : { "WR Firion" : "202001607", "DK Leon" : "202001707" },
+        "banner_img" : "wrfirion-dkleon.jpg"
+    },
     "mordegon" : {
         "banner_name" : "Mordegon 20K",
         "banner_type" : "limited_time_collab",
