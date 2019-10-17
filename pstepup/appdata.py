@@ -28,6 +28,33 @@ pull_type = {
 
 #only step-up banners; types = limited_time_collab, limited_time_seasonal, new_permanent_units, existing_permanent_units
 banner_info = {
+    "galuf" : {
+        "banner_name" : "Galuf 24K",
+        "banner_type" : "new_permanent_units",
+        "duration" : { "start" : "2019-10-11" , "end" : "2019-10-25" },
+        "news_image_link" : "https://lapis-prod-staticnews-gumi-sg.akamaized.net/prod//en/img/20191008FFVFeaturedSummon.jpg",
+        "banner_json" : "galuf.json",
+        "banner_icon" : { "Warrior of Dawn Galuf" : "205001007" },
+        "banner_img" : "galuf.jpg"
+    },
+    "krile" : {
+        "banner_name" : "Krile 24K",
+        "banner_type" : "new_permanent_units",
+        "duration" : { "start" : "2019-10-11" , "end" : "2019-10-25" },
+        "news_image_link" : "https://lapis-prod-staticnews-gumi-sg.akamaized.net/prod//en/img/20191008FFVFeaturedSummon.jpg",
+        "banner_json" : "krile.json",
+        "banner_icon" : { "Warrior of Light Krile" : "205001307" },
+        "banner_img" : "krile.jpg"
+    },
+    "exdeath" : {
+        "banner_name" : "Exdeath 24K",
+        "banner_type" : "new_permanent_units",
+        "duration" : { "start" : "2019-10-11" , "end" : "2019-10-25" },
+        "news_image_link" : "https://lapis-prod-staticnews-gumi-sg.akamaized.net/prod//en/img/20191008FFVFeaturedSummon.jpg",
+        "banner_json" : "exdeath.json",
+        "banner_icon" : { "Dark Mage Exdeath" : "205000907" },
+        "banner_img" : "exdeath.jpg"
+    },
     "wrfirion-dkleon" : {
         "banner_name" : "WR Firion/DK Leon 24K",
         "banner_type" : "new_permanent_units",

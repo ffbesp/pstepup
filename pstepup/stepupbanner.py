@@ -10,6 +10,9 @@ FIVE_PERCENT_RAINBOW_RATE_BANNERS = [
 FIVE_TIMES_RATE_G_RAINBOW_BANNERS = [
     'Nagi 12K', 'Yego 12K', 'Crimson 12K', 'Karlette 12K', 'Yuraisha 12K', 'Cid 12K'
 ]
+FEATURED_UNIT_SHARING_RATEUP_BANNERS = [
+    'Galuf 24K', 'Krile 24K', 'Exdeath 24K'
+]
 
 def get_custom_rates(banner_name):
     """Returns custom rates that apply to all pulls on step-up banner
@@ -45,6 +48,18 @@ def get_custom_rates(banner_name):
             'rainbowRate' : 0.07,
             'bannerRainbowRate' : 0.0375,
             'offBannerRainbowRate' : 0.0325
+        }
+        return (regular, guaranteedGold)
+    elif banner_name in FEATURED_UNIT_SHARING_RATEUP_BANNERS:
+        regular = {
+            'rainbowRate' : 0.03,
+            'bannerRainbowRate' : 0.005,
+            'offBannerRainbowRate' : 0.025
+        }
+        guaranteedGold = {
+            'rainbowRate' : 0.05,
+            'bannerRainbowRate' : 0.01875,
+            'offBannerRainbowRate' : 0.03125
         }
         return (regular, guaranteedGold)
 
