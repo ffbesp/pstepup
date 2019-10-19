@@ -86,7 +86,7 @@ def special_case_rates(pull_type, rate_up_multiplier, banner_name):
     elif (pull_type == 'regular' and rate_up_multiplier == 1.5 and banner_name == 'Rivera 12K'):
         return (0.015, 0.035) #Rivera step 1 and 2: 1.5% on banner, 3.5% off
     elif (pull_type == 'guaranteedGold' and rate_up_multiplier == 1.5 and 
-        banner_name == 'Rivera 12K'):
+        banner_name in ['Rivera 12K', 'Chocobo Fina 21K']):
         return (0.05625, 0.01375) #Rivera step 1 and 2: 5.625% on banner, 1.375% off
     elif (pull_type == 'regular' and rate_up_multiplier == 2 and banner_name == 'Rivera 12K'):
         return (0.02, 0.03) #Rivera step 3: 2% on banner, 3% off
@@ -95,6 +95,9 @@ def special_case_rates(pull_type, rate_up_multiplier, banner_name):
         return (0.075, 0.0125) #Rivera step 3, AI Katy step 1: 7.5% on banner, 1.25% off
     elif (pull_type == 'regular' and rate_up_multiplier == 2 and banner_name == 'AI Katy 10K'):
         return (0.02, 0.01) #AI Katy step 1: 2% on banner, 1% off
+    elif (pull_type == 'regular' and rate_up_multiplier == 1.5 and 
+        banner_name == 'Chocobo Fina 21K'): #Choco Fina step 2 and 4: 1.5% on, 1.5% off
+        return (0.015, 0.015)
     else:
         return None
 

@@ -21,7 +21,7 @@ import nav
 
 
 UNIT_ICON_BASE_URL = 'https://raw.githubusercontent.com/ffbesp/ffbeEquip/master/static/img/units/'
-FLUCTUATING_OFFBANNER_RATES = ['rivera', 'aikaty']
+FLUCTUATING_OFFBANNER_RATES = ['rivera', 'aikaty', 'chocobofina']
 
 def round_for_display(decimal_value):
     """Round a decimal to the thousandths place for web display
@@ -138,10 +138,13 @@ def create_banner_page(banner_id):
                     rate_list[1] = 100
                 elif rate_list[3] < 5 and banner_id == 'rivera' or rate_list[3] == 3.75:
                     rate_list[1] = 5
-                elif rate_list[3] >= 5 and rate_list[3] < 7.5 and banner_id == 'rivera':
+                elif (rate_list[3] >= 5 and rate_list[3] < 7.5 and 
+                    banner_id in ['rivera','chocobofina']):
                     rate_list[1] = 7
                 elif rate_list[3] == 7.5:
                     rate_list[1] = 8.75
+                elif rate_list[3] < 1 and banner_id == 'chocobofina':
+                    rate_list[1] = 100
                 elif rate_list[3] < 3:
                     rate_list[1] = 3
 

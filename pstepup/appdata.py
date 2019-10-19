@@ -28,6 +28,15 @@ pull_type = {
 
 #only step-up banners; types = limited_time_collab, limited_time_seasonal, new_permanent_units, existing_permanent_units
 banner_info = {
+    "chocobofina" : {
+        "banner_name" : "Chocobo Fina 21K",
+        "banner_type" : "new_permanent_units",
+        "duration" : { "start" : "2019-10-17" , "end" : "2019-10-30" },
+        "news_image_link" : "https://lapis-prod-staticnews-gumi-sg.akamaized.net/prod//en/img/20191015ChocoboFinaGacha.jpg",
+        "banner_json" : "chocobofina.json",
+        "banner_icon" : { "Chocobo Fina" : "100022207" },
+        "banner_img" : "chocobofina.jpg"
+    },
     "galuf" : {
         "banner_name" : "Galuf 24K",
         "banner_type" : "new_permanent_units",
