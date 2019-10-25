@@ -28,6 +28,15 @@ pull_type = {
 
 #only step-up banners; types = limited_time_collab, limited_time_seasonal, new_permanent_units, existing_permanent_units
 banner_info = {
+    "karten-godrea" : {
+        "banner_name" : "Karten/Godrea 24K",
+        "banner_type" : "limited_time_seasonal",
+        "duration" : { "start" : "2019-10-24" , "end" : "2019-11-06" },
+        "news_image_link" : "https://lapis-prod-staticnews-gumi-sg.akamaized.net/prod//en/img/20191021KartenGodreaFeaturedBanner.jpg",
+        "banner_json" : "karten-godrea.json",
+        "banner_icon" : { "Karten" : "401007207", "Godrea" : "401008607" },
+        "banner_img" : "karten-godrea.jpg"
+    },
     "chocobofina" : {
         "banner_name" : "Chocobo Fina 21K",
         "banner_type" : "new_permanent_units",

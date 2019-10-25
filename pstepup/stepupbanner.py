@@ -38,6 +38,18 @@ def get_custom_rates(banner_name):
             'offBannerRainbowRate' : 0.014
         }
         return (regular, guaranteedGold)
+    elif banner_name == 'Karten/Godrea 24K':
+        regular = {
+            'rainbowRate' : 0.05,
+            'bannerRainbowRate' : 0.015,
+            'offBannerRainbowRate' : 0.035
+        }
+        guaranteedGold = {
+            'rainbowRate' : 0.07,
+            'bannerRainbowRate' : 0.05625,
+            'offBannerRainbowRate' : 0.01375
+        }
+        return (regular, guaranteedGold)
     elif banner_name in FIVE_PERCENT_RAINBOW_RATE_BANNERS:
         regular = {
             'rainbowRate' : 0.05,
