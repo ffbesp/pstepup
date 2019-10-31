@@ -28,6 +28,15 @@ pull_type = {
 
 #only step-up banners; types = limited_time_collab, limited_time_seasonal, new_permanent_units, existing_permanent_units
 banner_info = {
+    "akefka-ashadow" : {
+        "banner_name" : "A. Kefka/A. Shadow 24K",
+        "banner_type" : "new_permanent_units",
+        "duration" : { "start" : "2019-10-31" , "end" : "2019-11-13" },
+        "news_image_link" : "https://lapis-prod-staticnews-gumi-sg.akamaized.net/prod//en/img/20191029ArchmageKefkaFeaturedSummon.jpg",
+        "banner_json" : "akefka-ashadow.json",
+        "banner_icon" : { "Archmage Kefka" : "206002307", "Assassin Shadow" : "206002407" },
+        "banner_img" : "akefka-ashadow.jpg"
+    },
     "karten-godrea" : {
         "banner_name" : "Karten/Godrea 24K",
         "banner_type" : "limited_time_seasonal",
