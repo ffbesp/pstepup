@@ -26,8 +26,58 @@ pull_type = {
     }
 }
 
+fest_pull_type = {
+    "regular" : {
+        "rainbowRate" : 0.05,
+        "bannerRainbowRate" : 0.015,
+        "offBannerRainbowRate" : 0.035
+    },
+    "guaranteedGold" : {
+        "rainbowRate" : 0.07,
+        "bannerRainbowRate" : 0.0375,
+        "offBannerRainbowRate" : 0.0325
+    },
+    "guaranteedEXRainbow" : {
+        "rainbowRate" : 1.0,
+        "bannerRainbowRate" : None,
+        "offBannerRainbowRate" : None
+    },
+    "guaranteedBannerRainbow" : {
+        "rainbowRate" : 1.0,
+        "bannerRainbowRate" : 1.0,
+        "offBannerRainbowRate" : 0
+    }
+}
+
 #only step-up banners; types = limited_time_collab, limited_time_seasonal, new_permanent_units, existing_permanent_units
 banner_info = {
+    "dqxis-part-two" : {
+        "banner_name" : "DQ XI S #2 25K",
+        "banner_type" : "limited_time_collab",
+        "duration" : { "start" : "2019-11-21" , "end" : "2019-12-4" },
+        "news_image_link" : "https://lapis-prod-staticnews-gumi-sg.akamaized.net/prod//en/img/20191119DQXISFeaturedSummon.jpg",
+        "banner_json" : "dqxis-part-two.json",
+        "banner_icon" : { "Mordegon" : "337000507", "Jasper Unbound" : "337000607", "The Lord of Shadows" : "337000807" },
+        "banner_img" : "dqxis-part-two.jpg"
+    },
+    "mwterra-alocke" : {
+        "banner_name" : "MW Terra/A. Locke 25K",
+        "banner_type" : "new_permanent_units",
+        "duration" : { "start" : "2019-11-14" , "end" : "2019-11-27" },
+        "news_image_link" : "https://lapis-prod-staticnews-gumi-sg.akamaized.net/prod//en/img/20191112MWTerraALockeFeaturedSummon.jpg",
+        "banner_json" : "mwterra-alocke.json",
+        "banner_icon" : { "Magitek Warrior Terra" : "206002107", "Adventurer Locke" : "206002207" },
+        "banner_img" : "mwterra-alocke.jpg"
+    },
+    "akrain" : {
+        "banner_name" : "AK Rain 25K",
+        "banner_type" : "new_permanent_units",
+        "duration" : { "start" : "2019-11-07" , "end" : "2019-11-20" },
+        "news_image_link" : "https://lapis-prod-staticnews-gumi-sg.akamaized.net/prod/en/img/20191105CGAldoreKingRainFeaturedSummon.jpg",
+        "banner_json" : "akrain.json",
+        "banner_icon" : { "AK Rain" : "100023207" },
+        "banner_img" : "akrain.jpg"
+    },
     "akefka-ashadow" : {
         "banner_name" : "A. Kefka/A. Shadow 24K",
         "banner_type" : "new_permanent_units",

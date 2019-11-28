@@ -50,6 +50,18 @@ def get_custom_rates(banner_name):
             'offBannerRainbowRate' : 0.01375
         }
         return (regular, guaranteedGold)
+    elif banner_name == 'DQ XI S #2 25K':
+        regular = {
+            'rainbowRate' : 0.05,
+            'bannerRainbowRate' : 0.03,
+            'offBannerRainbowRate' : 0.02
+        }
+        guaranteedGold = {
+            'rainbowRate' : 0.07,
+            'bannerRainbowRate' : 0.0375,
+            'offBannerRainbowRate' : 0.0325
+        }
+        return (regular, guaranteedGold)
     elif banner_name in FIVE_PERCENT_RAINBOW_RATE_BANNERS:
         regular = {
             'rainbowRate' : 0.05,
@@ -173,7 +185,7 @@ class StepUpBanner:
             rates as key and total pull count as value
     """
     def __init__(self, p_type, banner_info):
-        self.laps = banner_info['totalAvailableLaps']
+        self.set_laps(banner_info)
         self.set_base_rates(p_type, banner_info)
         self.rates_and_pulls_per_lap = sum_pulls_for_rates(self.base_rates, banner_info)
 
@@ -201,3 +213,16 @@ class StepUpBanner:
                 / float(banner_info['fiveStarBaseUnitCount']))
             self.base_rates['guaranteedEXRainbow']['offBannerRainbowRate'] = (
                 1 - self.base_rates['guaranteedEXRainbow']['bannerRainbowRate'])
+
+    def set_laps(self, banner_info):
+        """Init total available laps on a specific banner
+
+        Defaults to 5 for 'unlimited' lap banners
+
+        Args:
+            banner_info (dict): number of laps, banner metadata, and step details
+        """
+        if type(banner_info['totalAvailableLaps']) is int:
+            self.laps = banner_info['totalAvailableLaps']
+        else:
+            self.laps = 5

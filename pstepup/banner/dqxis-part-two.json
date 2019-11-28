@@ -1,0 +1,53 @@
+{
+  "bannerName" : "DQ XI S #2 25K",
+  "customBannerRates" : true,
+  "totalAvailableLaps" : "Unlimited",
+  "totalPerLapCost" : 25000,
+  "fiveStarBaseUnitCount" : 90,
+  "bannerRainbowCount" : 3,
+  "singleUnitDisplayName" : "Jasper Unbound",
+
+  "steps" : {
+    "1" : {
+      "cost" : 5000,
+      "summons" : {
+        "guaranteedGold" : 2,
+        "regular" : 8,
+        "guaranteedEXRainbow" : 1
+      },
+      "extraDrop" : [ "1x DQ XI S Special Unit Summoning Key #2 [Silver]" ]
+    },
+    "2" : {
+      "cost" : 5000,
+      "summons" : {
+        "guaranteedGold" : 2,
+        "regular" : 9
+      },
+      "extraDrop" : [ "1x DQ XI S Special Unit Summoning Key #2 [Silver]" ]
+    },
+    "3" : {
+      "cost" : 5000,
+      "summons" : {
+        "guaranteedGold" : 2,
+        "regular" : 8,
+        "guaranteedBannerRainbow" : 1
+      }
+    },
+    "4" : {
+      "cost" : 5000,
+      "summons" : {
+        "guaranteedGold" : 2,
+        "regular" : 9
+      },
+      "extraDrop" : [ "1x DQ XI S Special Unit Summoning Key #2 [Silver]" ]
+    },
+    "5" : {
+      "cost" : 5000,
+      "summons" : {
+        "guaranteedGold" : 2,
+        "regular" : 9
+      },
+      "extraDrop" : [ "1x DQ XI S Special Unit Summoning Key #2 [Silver]", "1x DQ XI S Special Unit Summoning Key #2 [Gold]" ]
+    }
+  }
+}

@@ -81,7 +81,12 @@ def create_banner_page(banner_id):
     with open(os.path.join(os.getcwd(), os.pardir, 'banner', filename), 'r') as banner_file:
         banner_json = json.load(banner_file)
 
-    step_up = stepupbanner.StepUpBanner(appdata.pull_type, banner_json)
+    if int(appdata.banner_info[banner_id]['duration']['start'].replace('-', '')) >= 20191107:
+        pull_type = appdata.fest_pull_type
+    else:
+        pull_type = appdata.pull_type
+
+    step_up = stepupbanner.StepUpBanner(pull_type, banner_json)
 
     rates_and_pulls, expected_value, at_least_x, summary, exactly_x = {}, {}, {}, {}, {}
     for lap in range(1, step_up.laps + 1):
@@ -157,6 +162,7 @@ def create_banner_page(banner_id):
     for key, value in banner_json.items():
         if not key == 'steps':
             combined_banner_info[key] = value
+    combined_banner_info['totalDisplayLaps'] = step_up.laps
 
     meta_desc = (
         'Expected values and probability for '
